@@ -1,0 +1,4 @@
+node_modules/
+lavalinkConfig.json
+package-lock.json
+.env

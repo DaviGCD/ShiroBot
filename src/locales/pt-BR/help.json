@@ -1,0 +1,18 @@
+{
+    "play": "Faz eu entrar no canal de voz e tocar uma música",
+    "seek": "Altera a posição da música atual (Apenas segundos são suportado. Ex: ;seek 120).",
+    "skip": "Pula a música atual para a próxima da fila.",
+    "stop": "Para a música e limpa a playlist.",
+    "volume": "Altera o volume do player.",
+    "help": "Envia esta lista aqui no seu privado.",
+    "ping": "[shards] Mostra o meu ping atual",
+    "dj": "Configura o meu módulo de DJ.",
+    "prefix": "Altera o meu prefix atual no servidor.",
+    "invite": "Envia o meu convite no seu privado.",
+    "loop": "Ativa a repetição da música que está tocando atualmente.",
+    "resume": "Retoma a música que está pausada.",
+    "pause": "Pausa a música atual.",
+    "search": "Procure a sua música desejada.",
+    "stats": "Mostra as minhas estatística.",
+    "nowplaying": "Mostra a música que está tocando atualmente."
+}
