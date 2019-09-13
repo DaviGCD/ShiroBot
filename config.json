@@ -1,5 +1,4 @@
 {
     "owner": ["318155799270522880", "456662676035076121"],
-    "prefix": ";",
-    "mongoose": "mongodb+srv://shiro:15121004@shirobot-wrhvh.gcp.mongodb.net/test?retryWrites=true&w=majority"
+    "prefix": ";"
 }

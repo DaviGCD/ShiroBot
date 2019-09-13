@@ -22,8 +22,6 @@ class Player extends EventEmitter {
         return getSongs(this.player.node, `ytsearch:${query}`).then(a => {
             if (!a[0]) return null
             this._addToQueue(a[0])
-            this.nowPlaying = a[0].info
-            this.repeatTrack = a[0].track
             return a[0].info
         })
     }
@@ -63,10 +61,12 @@ class Player extends EventEmitter {
                 return
             }
             this.player.play(nextSong.track)
+                this.repeatTrack = nextSong.track
                 this.nowPlaying = nextSong.info
             }
         })
         this.player.play(track.track)
+        this.nowPlaying = track.info
         return this.emit('playingNow', track)
     }
 }
