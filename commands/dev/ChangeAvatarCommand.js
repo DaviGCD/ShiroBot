@@ -12,8 +12,8 @@ module.exports = class ChangeAvatarCommand extends Command {
     }
 
     async run({message, args, server}, t) {
-        let avatar = message.attachments.first() ? message.attachments.first().url : null || args[0]
-        if (avatar === null) return message.channel.send(t("commands:changeavatar.args-null"))
+        let avatar = message.attachments.first() ? message.attachments.first().url : undefined || args[0]
+        if (!avatar || avatar === undefined) return message.channel.send(t("commands:changeavatar.args-null"))
 
         await this.client.user.setAvatar(avatar).then(() => {
             message.channel.send(t("commands:changeavatar.success"))
