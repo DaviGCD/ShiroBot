@@ -11,7 +11,7 @@ module.exports = class SearchCommand extends Command {
         super(client, {
             name: "search",
             aliases: ["procurar", "pesquisar"],
-            category: "music"
+            category: "dev"
         })
     }
 
