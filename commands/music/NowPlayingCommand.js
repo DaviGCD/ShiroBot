@@ -29,7 +29,8 @@ module.exports = class NowPlayingCommand extends Command {
             embed.addField(t("commands:np.dislike"), info.dislikeCount, true)
             embed.addField(t("commands:np.comments"), info.commentCount, true)
             embed.addField(t("commands:np.duration"), `[${moment.duration(music.player.state.position).format('dd:hh:mm:ss')}/${moment.duration(music.nowPlaying.length).format('dd:hh:mm:ss')}]`, true)
-            embed.addField(t("commands:np.link"), info.url, true)
+            embed.addField(t("commands:np.loop"), music.repeat ? t("commands:true") : t("commands:false"), true)
+            embed.addField(t("commands:np.link"), `[${"commands:click-here"}](${info.url})`, true)
 
             message.channel.send(embed)
         })

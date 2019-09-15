@@ -1,0 +1,19 @@
+{
+    "play": "Does I join in the voice channel and playing one song.",
+    "seek": "Change the position of the current song (Just secounds is supported. Ex: ;seek 120).",
+    "skip": "Skip the current song for the next to queue.",
+    "stop": "Stop the song and clean the queue",
+    "volume": "Change the volume of the song.",
+    "help": "Sent this list here in your private.",
+    "ping": "[shards] Show my current ping.",
+    "dj": "Set up my DJ module.",
+    "prefix": "Change my current prefix in the server.",
+    "invite": "Sent my invit in your private.",
+    "loop": "Enable and disable the repeat on the current song.",
+    "resume": "Resume the song that is paused.",
+    "pause": "Pause the current song.",
+    "search": "Search for the your desired song.",
+    "stats": "Show my statistics.",
+    "nowplaying": "Show current song to be playing now.",
+    "playlist": "Show the current list of song."
+}

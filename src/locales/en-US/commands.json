@@ -1,0 +1,97 @@
+{
+    "blacklist": {
+        "banned": "User successfully banned!",
+        "unbanned": "User successfully unbanned",
+        "member-args-null": "Do you need must enter the ID for the user."
+    },
+    "dj-module": {
+        "user-channel-null": "Do you are not in any voice channel.",
+        "user-another-channel": "Do you need to be in `{{channel}}` because that'swhere I find myself.",
+        "queue-null": "At this time, the queue on this server is empty.",
+        "playing-null": "At this time, I'm don't playing a none song.",
+        "dj": {
+            "args-null": "The DJ permission is designed to not allow people to abuse music commands, so to get DJ permission, you need to set using `{{prefix}}dj <@​role or role id>` if you already have this set, Just give the role to the members you want to have DJ permission, and you're done!\n\nWell... Now that you've figured out how to earn that permission, good luck and fun with my music controls and see you soon!",
+            "success": "DJ roles successfully changed."
+        }
+    },
+    "play": {
+        "args-null": "Do you need input was name or URL of the song.",
+        "playing-now": "Playing now `{{musicTitle}}` uploaded by `{{musicAuthor}}` duration: `{{musicTime}}`.",
+        "add-to-queue": "`{{musicTitle}}` by `{{musicAuthor}}` duration: `{{musicTime}}` has be added to queue."
+    },
+    "prefix": {
+        "args-null": "Do you don't was input a prefix of you want to put.",
+        "success": "Prefix successfully changed."
+    },
+    "seek": {
+        "seeked": "Song position has be successfully changed.",
+        "args-null": "Your need input the time to be change.",
+        "correct-use": "Correct use to the command: `{{prefix}}seek 160`."
+    },
+    "skip": "The song has be successfully skipped.",
+    "stop": "The song was be stopped and the queue was cleared, I'm leaveing of the `{{channel}}`.",
+    "volume": {
+        "max-and-min": "The maximum volume is `{{volume}}` up until `100`.",
+        "changed": "My volume has be changed for `{{volume}}/100`.",
+        "current": "My current volume is `{{volume}}/100`."
+    },
+    "help": {
+        "music": "**Music**",
+        "misc": "**Miscellaneous**",
+        "settings": "**Settings**"
+    },
+    "dm": {
+        "send-dm": "I sent for you private, take look there.",
+        "dm-closed": "Your private is closed, I can not send the information there."
+    },
+    "invite": {
+        "title": "My invite",
+        "description": "Apparently I liked you, right? Well... If you want to add me to your discord server, just click [here]({{invite}}) and have a good time.\n\nIf you need help, support or have any questions, get in my support server by clicking [here](https://discord.gg/c8EWvFK), thanks for choosing me."
+    },
+    "loop": {
+        "enable": "The repeat mode has be successfully enable for the song `{{music}}`.",
+        "disable": "The repeat mode has be successfully disable for the song `{{music}}`."
+    },
+    "resume": {
+        "paused": "The song is don't paused.",
+        "resumed": "Song successfully resumed."
+    },
+    "pause": {
+        "paused": "Song successfully paused.",
+        "resumed": "The song is already paused."
+    },
+    "changeavatar": {
+        "args-null": "Do you need input a URL of the avatar.",
+        "success": "Avatar successfully changed."
+    },
+    "stats": {
+        "memory": "Memory",
+        "uptime": "Uptime",
+        "servers": "Servers",
+        "channels": "Channels",
+        "node-version": "Node.js",
+        "discord-version": "discord.js",
+        "lavalink": "discord.js-lavalink",
+        "shards": "Shards",
+        "users": "Users"
+    },
+    "np": {
+        "now-playing": "Playing now",
+        "title": "Title",
+        "channel": "Channel",
+        "views": "Views",
+        "like": "Likes",
+        "dislike": "Dsilikes",
+        "comments": "Comments",
+        "duration": "Duration",
+        "link": "Link",
+        "loop": "Repeat mode"
+    },
+    "true": "Enable",
+    "false": "Disable",
+    "click-here": "click here",
+    "queue": {
+        "pages": "Page {{page}} for {{pages}}",
+        "title": "Songs that are in the queue"
+    }
+}

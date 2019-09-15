@@ -28,10 +28,10 @@ module.exports = class LoopCommand extends Command {
             if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", {channel: message.guild.me.voice.channel.name}))
             if (this.client.player.get(message.guild.id).repeat) {
                 this.client.player.get(message.guild.id).repeat = false
-                message.channel.send(t("commands:loop.disable"))
+                message.channel.send(t("commands:loop.disable", {music: this.client.player.get(message.guild.id).nowPlaying.title}))
             } else {
                 this.client.player.get(message.guild.id).repeat = true
-                message.channel.send(t("commands:loop.enable"))
+                message.channel.send(t("commands:loop.enable", {music: this.client.player.get(message.guild.id).nowPlaying.title}))
             }
         }
     }

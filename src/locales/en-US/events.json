@@ -1,0 +1,8 @@
+{
+    "mention": "My prefix is `{{prefix}}`, if you need help, type it `{{prefix}}help`.",
+    "cooldown": {
+        "message": "Command in cooldown, wait **{{time}}** to be able execute this command again.",
+        "secounds": "secounds",
+        "milliseconds": "some millisecounds"
+    }
+}

@@ -84,6 +84,14 @@
         "dislike": "Não gostei",
         "comments": "Comentários",
         "duration": "Duração",
-        "link": "Link"
+        "link": "Link",
+        "loop": "Modo repetir"
+    },
+    "true": "Ativado",
+    "false": "Desativado",
+    "click-here": "clique aqui",
+    "queue": {
+        "pages": "Página {{page}} de {{pages}}",
+        "title": "Músicas que estão na fila"
     }
 }
