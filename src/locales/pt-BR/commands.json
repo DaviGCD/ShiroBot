@@ -7,7 +7,7 @@
     "dj-module": {
         "user-channel-null": "Você não se encontra em nenhum canal voz.",
         "user-another-channel": "Você precisa estar no `{{channel}}` pois é lá que eu me encontro.",
-        "queue-null": "No momento a fila deste servidor está vazia.",
+        "queue-null": "No momento a fila, deste servidor está vazia.",
         "playing-null": "No momento não estou tocando nenhuma música.",
         "dj": {
             "args-null": "A permissão de DJ foi criada para não permitir pessoas de abusarem dos comandos de música, para adquirir a permissão de DJ, é necessário configurar usando `{{prefix}}dj <@cargo ou o ID do cargo>`, caso já possua isto configurado, basta dar o cargo para os membros que você quer que tenha a permissão de DJ, e pronto!\n\nBom... Agora que você descobriu como ganhar essa permissão, boa sorte e divertimento com os meus comandos de música e até logo!",
@@ -49,8 +49,8 @@
         "description": "Pelo visto eu te agradei, né? Bom... Se deseja me adicionar no seu servidor do discord, basta clicar [aqui]({{invite}}) e tenha um bom divertimento.\n\nCaso precise de ajuda, suporte ou esteja com alguma dúvida, entre em meu servidor de suporte clicando [aqui](https://discord.gg/c8EWvFK), obrigada por me escolher."
     },
     "loop": {
-        "enable": "Modo repetir ativado com sucesso.",
-        "disable": "Modo repetir desativado com sucesso."
+        "enable": "Modo repetir foi ativado com sucesso para a música {{music}}.",
+        "disable": "Modo repetir foi desativado com sucesso para a música {{music}}."
     },
     "resume": {
         "paused": "A música não está pausada.",

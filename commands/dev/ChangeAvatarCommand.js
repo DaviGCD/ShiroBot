@@ -15,8 +15,14 @@ module.exports = class ChangeAvatarCommand extends Command {
         let avatar = message.attachments.first() ? message.attachments.first().url : undefined || args[0]
         if (!avatar || avatar === undefined) return message.channel.send(t("commands:changeavatar.args-null"))
 
-        await this.client.user.setAvatar(avatar).then(() => {
-            message.channel.send(t("commands:changeavatar.success"))
-        })
+        if (!message.attachments.first()) {
+            await this.client.user.setAvatar(avatar).then(() => {
+                message.channel.send(t("commands:changeavatar.success"))
+            })
+        } else {
+            await this.client.user.setAvatar(avatar).then(() => {
+                message.channel.send(t("commands:changeavatar.success"))
+            })
+        }
     }
 }
