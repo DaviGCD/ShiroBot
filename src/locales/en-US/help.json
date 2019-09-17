@@ -16,5 +16,6 @@
     "stats": "Show my statistics.",
     "nowplaying": "Show current song to be playing now.",
     "playlist": "Show the current list of song.",
-    "language": "Change my language in your server."
+    "language": "Change my language in your server.",
+    "shuffle": "Shuffles songs of the queue."
 }

@@ -93,5 +93,6 @@
     "queue": {
         "pages": "Page {{page}} for {{pages}}",
         "title": "Songs that are in the queue"
-    }
+    },
+    "shuffle": "Queue shuffled successfully."
 }

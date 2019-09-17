@@ -93,5 +93,6 @@
     "queue": {
         "pages": "Página {{page}} de {{pages}}",
         "title": "Músicas que estão na fila"
-    }
+    },
+    "shuffle": "Fila embaralhada com sucesso."
 }

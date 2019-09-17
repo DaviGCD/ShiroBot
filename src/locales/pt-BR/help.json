@@ -16,5 +16,6 @@
     "stats": "Mostra as minhas estatística.",
     "nowplaying": "Mostra a música que está tocando atualmente.",
     "playlist": "Mostra a lista de música atual.",
-    "language": "Altera o meu idioma no seu servidor."
+    "language": "Altera o meu idioma no seu servidor.",
+    "shuffle": "Embaralha as músicas na fila."
 }
