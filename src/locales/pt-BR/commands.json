@@ -94,5 +94,18 @@
         "pages": "Página {{page}} de {{pages}}",
         "title": "Músicas que estão na fila"
     },
-    "shuffle": "Fila embaralhada com sucesso."
+    "shuffle": "Fila embaralhada com sucesso.",
+    "remove": {
+        "args-null": "Informe um número válido.",
+        "not-number": "Você informou um número inválido.",
+        "max-and-minimum": "Você só pode remover entre 1 a {{max}}.",
+        "removed": "Música removida com sucesso."
+    },
+    "search": {
+        "args-null": "Informe o nome da música desejada.",
+        "title": "Resultado da pesquisa.",
+        "no-results": "Tempo esgotado.",
+        "invalid": "Você informou um valor inválido.",
+        "time": "Você tem 20 segundos para escolher."
+    }
 }

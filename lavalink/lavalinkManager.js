@@ -15,7 +15,7 @@ class Player extends EventEmitter {
         this.player = player
         this.queue = []
         this.nowPlaying = ''
-        this.repeatTrack =''
+        this.repeatTrack = ''
         this.repeat = false
     }
     play (query) {
@@ -66,6 +66,7 @@ class Player extends EventEmitter {
         })
         this.player.play(track.track)
         this.nowPlaying = track.info
+        this.repeatTrack = track.track
         return this.emit('playingNow', track)
     }
 }
