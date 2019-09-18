@@ -49,8 +49,8 @@
         "description": "Pelo visto eu te agradei, né? Bom... Se deseja me adicionar no seu servidor do discord, basta clicar [aqui]({{invite}}) e tenha um bom divertimento.\n\nCaso precise de ajuda, suporte ou esteja com alguma dúvida, entre em meu servidor de suporte clicando [aqui](https://discord.gg/c8EWvFK), obrigada por me escolher."
     },
     "loop": {
-        "enable": "Modo repetir foi ativado com sucesso para a música {{music}}.",
-        "disable": "Modo repetir foi desativado com sucesso para a música {{music}}."
+        "enable": "Modo repetir foi ativado com sucesso para a música `{{music}}`.",
+        "disable": "Modo repetir foi desativado com sucesso para a música `{{music}}`."
     },
     "resume": {
         "paused": "A música não está pausada.",
