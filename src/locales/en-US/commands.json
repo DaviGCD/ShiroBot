@@ -38,7 +38,8 @@
     "help": {
         "music": "**Music**",
         "misc": "**Miscellaneous**",
-        "settings": "**Settings**"
+        "settings": "**Settings**",
+        "another-links": "Another links"
     },
     "dm": {
         "send-dm": "I sent for you private, take look there.",
@@ -107,5 +108,6 @@
         "no-results": "Time out.",
         "invalid": "You entered a invalid value.",
         "time": "You have 20 secounds to choose."
-    }
+    },
+    "server-support": "Server support"
 }
