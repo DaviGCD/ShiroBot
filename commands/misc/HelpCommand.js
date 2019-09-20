@@ -16,7 +16,7 @@ module.exports = class HelpCommand extends Command {
         let settings = this.client.commands.filter(cmd => cmd.config.category === "settings").map(cmd => `**${server.prefix}${cmd.config.name}** » ${t(`help:${cmd.config.name}`)}`).join("\n")
         let invite = this.client.generateInvite(37047552)
         invite.then(i => {
-            let links = `[${t("commands:invite.title")}](${i}) - [${t("commands:support-server")}](https://discord.gg/c8EWvFK)\n[Discord Bot List](https://discordbots.org/bot/481289027753082890/vote) - [Bots Para Discord]https://botsparadiscord.xyz/bots/481289027753082890/votar)`
+            let links = `[${t("commands:invite.title")}](${i}) - [${t("commands:support-server")}](https://discord.gg/c8EWvFK)\n[Discord Bot List](https://discordbots.org/bot/481289027753082890/vote) - [Bots Para Discord](https://botsparadiscord.xyz/bots/481289027753082890/votar)`
             const embed = new MessageEmbed()
             .setColor(this.client.colors.default)
             .addField(t("commands:help.music"), music)
