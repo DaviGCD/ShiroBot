@@ -109,5 +109,5 @@
         "invalid": "You entered a invalid value.",
         "time": "You have 20 secounds to choose."
     },
-    "server-support": "Server support"
+    "support-server": "Server support"
 }
