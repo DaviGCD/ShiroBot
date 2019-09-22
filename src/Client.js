@@ -31,7 +31,8 @@ module.exports = class Shiro extends Client {
             f.forEach(category => {
                 readdir(`./${path}/${category}`, (err, cmd) => {
                     cmd.forEach(cmd => {
-                        const command = new(require(`.${path}/${category}/${cmd}`))(this)
+                        const Command = require(`.${path}/${category}/${cmd}`)
+                        const command = new Command(this)
                         this.commands.set(command.config.name, command)
                         command.config.aliases.forEach(alias => this.aliases.set(alias, command.config.name))
                     })
@@ -44,7 +45,8 @@ module.exports = class Shiro extends Client {
         readdir(path, (err, f) => {
             if (err) return console.error(err.stack)
             f.forEach(events => {
-                const event = new(require(`../${path}/${events}`))(this)
+                const Event = require(`../${path}/${events}`)
+                const event = new Event(this)
                 super.on(events.split(".")[0], (...args) => event.run(...args))
             })
         })

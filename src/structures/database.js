@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const config = require("../../config.json")
 require("dotenv").config()
-mongoose.connect(process.env.MONGODB, {useNewUrlParser: true}, (err) => {
+mongoose.connect(process.env.MONGODB, { useNewUrlParser: true}, (err) => {
     if (err) return console.error(`Unable to connect to database ${err}`)
     console.info("Connected to database")
 })
