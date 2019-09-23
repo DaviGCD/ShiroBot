@@ -39,7 +39,8 @@
         "music": "**Music**",
         "misc": "**Miscellaneous**",
         "settings": "**Settings**",
-        "another-links": "Another links"
+        "another-links": "Another links",
+        "total-command": "I have a total {{cmd}} commands."
     },
     "dm": {
         "send-dm": "I sent for you private, take look there.",

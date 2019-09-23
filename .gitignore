@@ -1,5 +1,6 @@
 node_modules/
-config.json
 lavalinkConfig.json
 package-lock.json
 .env
+.idea
+config.json

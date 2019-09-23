@@ -4,5 +4,6 @@
         "message": "Command in cooldown, wait **{{time}}** to be able execute this command again.",
         "secounds": "secounds",
         "milliseconds": "some millisecounds"
-    }
+    },
+    "joined": "Hi, I'm {{client}}, just another music focused bot for Discord, thanks for adding me. Well, currently I have just a simple music system and some commands like ping, if you have any questions or If you have any idea what commands you want, go to my support server! Use `{{prefix}}invite`, if you want to know my list of commands, use `{{prefix}}commands`, see you later."
 }

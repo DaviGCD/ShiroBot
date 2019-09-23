@@ -1,15 +1,90 @@
+const fs = require("fs")
+const i18next = require("i18next")
+const translationBackend = require("i18next-node-fs-backend")
+
 module.exports = class GuildCreate {
     constructor(client) {
         this.client = client
     }
 
     async run(guild) {
+        let region = {
+            "brazil": "pt-BR",
+            "eu-central": "en-US",
+            "eu-west": "en-US",
+            "hongkong": "en-US",
+            "japan": "en-US",
+            "russia": "en-US",
+            "singapore": "en-US",
+            "southafrica": "en-US",
+            "sydney": "en-US",
+            "us-central": "en-US",
+            "us-east": "en-US",
+            "us-south": "en-US",
+            "us-west": "en-US"
+        }
 
         console.info(`[INFO] | [GUILD ADD] - GUILD: ${guild.name} (${guild.id}) - OWNER: ${guild.owner.user.tag} (${guild.owner.user.id}) - TOTAL MEMBERS: ${guild.memberCount} members`)
-        let server = new this.client.database.Guilds({
-            _id: guild.id
-        })
-        server.save()
-        guild.channels.filter(c => c.type === "text").random().send(`Olá, eu sou ${this.client.user.username}, apenas outro Bot focado em música para o Discord, obrigada por me adicionar. Bom, atualmente eu tenho apenas um simples sistema de música e alguns comandos como o ping, se estiver com alguma dúvida ou tem ideia de algum comando que você queira, entre em meu servidor de suporte! Use \`${server.prefix}convite\`, se quiser saber a minha lista de comandos, use \`${server.prefix}comandos\`, até breve.`).catch(()=> {})    
+        let server = await this.client.database.Guilds.findById(guild.id)
+        if (!server) {
+            server = new this.client.database.Guilds({
+                _id: guild.id,
+                lang: region[guild.region]
+            })
+            server.lang = region[guild.region]
+            server.save()
+            let t
+            const setFixedT = function (translate) {
+                t = translate
+            }
+            const language = (server && server.lang) || "pt-BR"
+            setFixedT(i18next.getFixedT(language))
+
+            return new Promise(async (resolve, reject) => {
+                i18next.use(translationBackend).init({
+                    ns: ["commands", "events", "permissions", "help"],
+                    preload: await fs.readdirSync("./src/locales/"),
+                    fallbackLng: "pt-BR",
+                    backend: {
+                        loadPath: "./src/locales/{{lng}}/{{ns}}.json"
+                    },
+                    interpolation: {
+                        escapeValue: false
+                    },
+                    returnEmptyString: false
+                }, async (err, f) => {
+                    if (f) {
+                        if (server) {
+                            guild.channels.filter(c => c.type === "text").random().send(t("events:joined", {client: this.client.user.username, prefix: server.prefix})).catch(()=> {})
+                        }
+                    }
+                })
+            })
+        } else {
+            let t
+            const setFixedT = function (translate) {
+                t = translate
+            }
+            const language = (server && server.lang) || "pt-BR"
+            setFixedT(i18next.getFixedT(language))
+            return new Promise(async (resolve, reject) => {
+                i18next.use(translationBackend).init({
+                    ns: ["commands", "events", "permissions", "help"],
+                    preload: await fs.readdirSync("./src/locales/"),
+                    fallbackLng: "pt-BR",
+                    backend: {
+                        loadPath: "./src/locales/{{lng}}/{{ns}}.json"
+                    },
+                    interpolation: {
+                        escapeValue: false
+                    },
+                    returnEmptyString: false
+                }, async (err, f) => {
+                    if (f) {
+                        guild.channels.filter(c => c.type === "text").random().send(t("events:joined", {client: this.client.user.username, prefix: server.prefix})).catch(()=> {})
+                    }
+                })
+            })
+        }
     }
 }

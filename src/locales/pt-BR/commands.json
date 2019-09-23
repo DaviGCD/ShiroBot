@@ -39,7 +39,8 @@
         "music": "**Música**",
         "misc": "**Miscelanêa**",
         "settings": "**Configurações**",
-        "another-links": "Outros links"
+        "another-links": "Outros links",
+        "total-command": "Eu tenho ao todo {{cmd}} comandos."
     },
     "dm": {
         "send-dm": "Enviei no seu privado, dê uma olhada lá.",
