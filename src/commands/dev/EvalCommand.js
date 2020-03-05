@@ -1,4 +1,4 @@
-const Command = require("../../src/structures/command")
+const Command = require("../../structures/command")
 module.exports = class EvalCommand extends Command {
     constructor(client) {
         super(client, {
@@ -11,7 +11,7 @@ module.exports = class EvalCommand extends Command {
         })
     }
 
-    async run({message, args, server}, t) {
+    async run({ message, args, server }, t) {
         try {
             let util = require("util")
             let code = args.join(" ")
@@ -25,13 +25,13 @@ module.exports = class EvalCommand extends Command {
                 str = str.substr(0, 1800)
                 str = `${str}...`
             }
-            message.channel.send(str, {code: "js"})
+            message.channel.send(str, { code: "js" })
         } catch (err) {
             if (err.stack.length > 1800) {
                 err.stack = err.stack.substr(0, 1800)
                 err.stack = `${err.stack}...`
             }
-            message.channel.send(err.stack, {code: "js"})
+            message.channel.send(err.stack, { code: "js" })
         }
     }
 }

@@ -1,4 +1,4 @@
-const Command = require("../../src/structures/command")
+const Command = require("../../structures/command")
 module.exports = class ChangeAvatarCommand extends Command {
     constructor(client) {
         super(client, {
@@ -11,7 +11,7 @@ module.exports = class ChangeAvatarCommand extends Command {
         })
     }
 
-    async run({message, args, server}, t) {
+    async run({ message, args, server }, t) {
         let avatar = message.attachments.first() ? message.attachments.first().url : undefined || args[0]
         if (!avatar || avatar === undefined) return message.channel.send(t("commands:changeavatar.args-null"))
 

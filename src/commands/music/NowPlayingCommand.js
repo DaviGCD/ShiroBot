@@ -1,4 +1,4 @@
-const Command = require("../../src/structures/command")
+const Command = require("../../structures/command")
 const { MessageEmbed } = require("discord.js")
 const youtube = require("youtube-info")
 const moment = require("moment")
@@ -12,8 +12,8 @@ module.exports = class NowPlayingCommand extends Command {
         })
     }
 
-    run({message, args, server}, t) {
-        
+    run({ message, args, server }, t) {
+
         if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
         const music = this.client.player.get(message.guild.id)
         youtube(music.nowPlaying.identifier, function (err, info) {

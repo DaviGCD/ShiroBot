@@ -1,4 +1,4 @@
-const Command = require("../../src/structures/command")
+const Command = require("../../structures/command")
 const moment = require("moment")
 require("moment-duration-format")
 module.exports = class PlayCommand extends Command {
@@ -13,11 +13,11 @@ module.exports = class PlayCommand extends Command {
         })
     }
 
-    async run({message, args, server}, t) {
+    async run({ message, args, server }, t) {
         if (!message.member.voice.channel) return message.channel.send(t("commands:dj-module.user-channel-null"))
-        if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", {channel: message.guild.me.voice.channel.name}))
+        if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", { channel: message.guild.me.voice.channel.name }))
         if (!args[0]) return message.channel.send(t("commands:play.args-null"))
-        
+
         if (this.client.lavalink.manager.has(message.guild.id)) {
             this.client.player.get(message.guild.id).play(args.join(" ")).then(info => {
                 message.channel.send(t("commands:play.add-to-queue", {
@@ -26,7 +26,7 @@ module.exports = class PlayCommand extends Command {
                     musicTime: moment.duration(info.length).format('dd:hh:mm:ss')
                 }))
             })
-            
+
         } else {
             let music = await this.client.lavalink.join(message.member.voice.channel.id)
             music.on('playingNow', track => {
