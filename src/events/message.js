@@ -24,8 +24,24 @@ module.exports = class MessageReceive {
 
         let server = await this.client.database.Guilds.findById(message.guild.id)
         if (!server) {
+            let region = {
+                "brazil": "pt-BR",
+                "eu-central": "en-US",
+                "eu-west": "en-US",
+                "hongkong": "en-US",
+                "japan": "en-US",
+                "russia": "en-US",
+                "singapore": "en-US",
+                "southafrica": "en-US",
+                "sydney": "en-US",
+                "us-central": "en-US",
+                "us-east": "en-US",
+                "us-south": "en-US",
+                "us-west": "en-US"
+            }
             let guild = new this.client.database.Guilds({
-                _id: message.guild.id
+                _id: message.guild.id,
+                lang: region[message.guild.region]
             })
             guild.save()
         }
@@ -51,7 +67,7 @@ module.exports = class MessageReceive {
             }, async (err, f) => {
                 if (f) {
                     let mention = message.content === `<@${this.client.user.id}>` || message.content === `<@!${this.client.user.id}>`
-                    if (mention) return message.channel.send(t("events:mention", {prefix: server.prefix}))
+                    if (mention) return message.channel.send(t("events:mention", { prefix: server.prefix }))
 
                     if (!message.content.startsWith(server.prefix)) return
                     const args = message.content.slice(server.prefix.length).trim().split(/ +/g)
@@ -62,10 +78,10 @@ module.exports = class MessageReceive {
                     if (user.blacklist) return
                     if (cooldown.has(message.author.id)) {
                         let time = cooldown.get(message.author.id)
-                        return message.channel.send(t("events:cooldown.message", {time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`s [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`[${t("events:cooldown.milliseconds")}]`)}))
+                        return message.channel.send(t("events:cooldown.message", { time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`s [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`[${t("events:cooldown.milliseconds")}]`) }))
                     }
                     cooldown.set(message.author.id, Date.now() + 5000)
-                    
+
                     setTimeout(() => {
                         cooldown.delete(message.author.id)
                     }, 5000)
@@ -81,21 +97,21 @@ module.exports = class MessageReceive {
                     if (userPerm !== null) {
                         if (!message.member.hasPermission(userPerm)) {
                             let perm = userPerm.map(value => t(`permissions:${value}`)).join(", ")
-                            message.channel.send(t("permisions:user-missing-permission", {perm: perm}))
+                            message.channel.send(t("permisions:user-missing-permission", { perm: perm }))
                             return
                         }
                     }
                     if (clientPerm !== null) {
                         if (!message.guild.me.hasPermission(clientPerm)) {
                             let perm = clientPerm.map(value => t(`permissions:${value}`)).join(", ")
-                            message.channel.send(t("permissions:client-missing-permission", {perm: perm}))
+                            message.channel.send(t("permissions:client-missing-permission", { perm: perm }))
                             return
                         }
                     }
                     cmd.setT(t)
                     new Promise((res, rej) => {
                         message.channel.startTyping()
-                        res(cmd.run({message, args, server}, t))
+                        res(cmd.run({ message, args, server }, t))
                     }).then(() => {
                         message.channel.stopTyping()
                     }).catch(err => {
@@ -103,7 +119,7 @@ module.exports = class MessageReceive {
                             err.stack = err.stack.substr(0, 1800)
                             err.stack = `${err.stack}...`
                         }
-                        message.channel.send(err.stack, {code: "js"})
+                        message.channel.send(err.stack, { code: "js" })
                         message.channel.stopTyping()
                     })
                 }

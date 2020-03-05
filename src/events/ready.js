@@ -11,11 +11,11 @@ module.exports = class {
         console.info("Connected")
         function statusRandom() {
             let status = [{
-                name: `${client.config.prefix}help | ${client.users.size} imanitys`,
+                name: `${client.config.prefix}help | ${Number(client.users.size).toLocaleString()} imanitys`,
                 type: "PLAYING"
             },
             {
-                name: `Shard: ${client.shard.ids}/${client.shard.count} | ${client.guilds.size} guilds`,
+                name: `Shard: ${client.shard.ids}/${client.shard.count} | ${Number(client.guilds.size).toLocaleString()} guilds`,
                 type: "PLAYING"
             },
             {
@@ -35,17 +35,17 @@ module.exports = class {
                 type: "PLAYING"
             },
             {
-                name: `Música com ${client.users.size} na shard ${client.shard.ids}`,
+                name: `Música com ${Number(client.users.size).toLocaleString()} na shard ${client.shard.ids}`,
                 type: "LISTENING"
             },
             {
-                name: `Alegria para ${client.users.size} imanitys`,
+                name: `Alegria para ${Number(client.users.size).toLocaleString()} imanitys`,
                 type: "STREAMING",
                 url: "https://www.twitch.tv/davigc_ofc"
             }]
-            
+
             let randomStatus = status[Math.floor(Math.random() * status.length)]
-            client.user.setPresence({activity: randomStatus, status: "idle"})
+            client.user.setPresence({ activity: randomStatus, status: "dnd" })
         }
 
         statusRandom()

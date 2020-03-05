@@ -60,7 +60,7 @@ module.exports = class SearchCommand extends Command {
                     await this.client.lavalink.manager.leave(message.guild.id)
                     this.client.lavalink.manager.delete(message.guild.id)
                 })
-                music.play(vdo.url);
+                music.play(vdo.title);
                 this.client.player.set(message.guild.id, music)
             }
         } catch (error) {

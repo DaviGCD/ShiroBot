@@ -11,7 +11,7 @@ module.exports = class EvalCommand extends Command {
         })
     }
 
-    run({message, args, server}, t) {
+    async run({message, args, server}, t) {
         try {
             let util = require("util")
             let code = args.join(" ")

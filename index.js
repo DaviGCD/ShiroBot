@@ -1,4 +1,15 @@
-const Client = require("./src/Client")
+require("./src/ProtoTypes").start()
+console.info("Connecting...")
+
+const http = require("http")
+const express = require("express")
+const app = express()
+app.get("/", (req, res) => {
+    res.sendStatus(200)
+})
+app.listen(process.env.PORT)
+setInterval(() => http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`), 5000)
+const Client = require("./src/ShiroClient")
 const client = new Client({
     fetchAllMembers: true,
     disableEveryone: true
@@ -10,7 +21,5 @@ dbl.on("error", (err) => {
     console.error(err)
 })
 client.login(process.env.TOKEN)
-client.loadCommands("./commands")
-client.loadEvents("./events")
-require("./src/ProtoTypes").start()
-console.info("Connecting...")
+client.loadCommands()
+client.loadEvents()

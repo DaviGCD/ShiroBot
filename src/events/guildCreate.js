@@ -55,7 +55,7 @@ module.exports = class GuildCreate {
                 }, async (err, f) => {
                     if (f) {
                         if (server) {
-                            guild.channels.filter(c => c.type === "text").random().send(t("events:joined", {client: this.client.user.username, prefix: server.prefix})).catch(()=> {})
+                            guild.channels.filter(c => c.type === "text").random().send(t("events:joined", { client: this.client.user.username, prefix: server.prefix })).catch(() => { })
                         }
                     }
                 })
@@ -81,7 +81,7 @@ module.exports = class GuildCreate {
                     returnEmptyString: false
                 }, async (err, f) => {
                     if (f) {
-                        guild.channels.filter(c => c.type === "text").random().send(t("events:joined", {client: this.client.user.username, prefix: server.prefix})).catch(()=> {})
+                        guild.channels.filter(c => c.type === "text").random().send(t("events:joined", { client: this.client.user.username, prefix: server.prefix })).catch(() => { })
                     }
                 })
             })

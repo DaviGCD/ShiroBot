@@ -1,15 +1,6 @@
 const { Client, Collection } = require("discord.js")
 const { readdir } = require("fs")
-const http = require("http")
-const express = require("express")
-const app = express()
-app.get("/", (req, res) => {
-    res.sendStatus(200)
-})
-setInterval(() => {
-    http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me`)
-}, 30000)
-module.exports = class Shiro extends Client {
+module.exports = class ShiroClient extends Client {
     constructor(options = {}) {
         super(options)
         this.database = require("./structures/database")
@@ -17,7 +8,7 @@ module.exports = class Shiro extends Client {
         this.config = require("../config")
         this.aliases = new Collection()
         this.colors = require("./structures/colors")
-        this.player = new Map()
+        this.player = new Collection()
     }
 
     login(token) {
@@ -25,13 +16,13 @@ module.exports = class Shiro extends Client {
         return this
     }
 
-    loadCommands(path) {
-        readdir(path, (err, f) => {
+    loadCommands() {
+        readdir(__dirname, (err, f) => {
             if (err) return console.error(err.stack)
             f.forEach(category => {
-                readdir(`./${path}/${category}`, (err, cmd) => {
+                readdir(`${__dirname}/${category}`, (err, cmd) => {
                     cmd.forEach(cmd => {
-                        const Command = require(`.${path}/${category}/${cmd}`)
+                        const Command = require(`${__dirname}/${category}/${cmd}`)
                         const command = new Command(this)
                         this.commands.set(command.config.name, command)
                         command.config.aliases.forEach(alias => this.aliases.set(alias, command.config.name))
@@ -41,11 +32,11 @@ module.exports = class Shiro extends Client {
         })
     }
 
-    loadEvents(path) {
-        readdir(path, (err, f) => {
+    loadEvents() {
+        readdir(__dirname, (err, f) => {
             if (err) return console.error(err.stack)
             f.forEach(events => {
-                const Event = require(`../${path}/${events}`)
+                const Event = require(`${__dirname}/${events}`)
                 const event = new Event(this)
                 super.on(events.split(".")[0], (...args) => event.run(...args))
             })
