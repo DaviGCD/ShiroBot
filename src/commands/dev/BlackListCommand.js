@@ -12,7 +12,7 @@ module.exports = class BlackListCommand extends Command {
     }
 
     async run({ message, args, server }, t) {
-        let member = this.client.users.get(args[1])
+        let member = this.client.users.cache.get(args[1])
         let user = await this.client.database.Users.findById(member.id)
         if (!args.slice(2).join(" ")) {
             args.slice(2).join(" ") === ""
@@ -34,7 +34,7 @@ module.exports = class BlackListCommand extends Command {
                 break;
             case "view":
                 if (!member) return message.channel.send(t("commands:blacklist.member-args-null"))
-                let msg = `== USER BANNED INFO ==\n\n• User :: ${this.client.users.get(user._id).tag} - (${this.client.users.get(user._id).id})\n• Banned :: ${user.blacklist}\n• Reason :: ${user.blacklistreason}`
+                let msg = `== USER BANNED INFO ==\n\n• User :: ${this.client.users.cache.get(user._id).tag} - (${this.client.users.cache.get(user._id).id})\n• Banned :: ${user.blacklist}\n• Reason :: ${user.blacklistreason}`
                 message.channel.send(msg, { code: "asciidoc" })
                 break;
             default:

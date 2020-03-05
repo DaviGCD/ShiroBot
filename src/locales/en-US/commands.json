@@ -16,7 +16,7 @@
     },
     "play": {
         "args-null": "Do you need input was name or URL of the song.",
-        "playing-now": "Playing now `{{musicTitle}}` uploaded by `{{musicAuthor}}` duration: `{{musicTime}}`.",
+        "playing-now": "Now playing `{{musicTitle}}` uploaded by `{{musicAuthor}}` duration: `{{musicTime}}`.",
         "add-to-queue": "`{{musicTitle}}` by `{{musicAuthor}}` duration: `{{musicTime}}` has be added to queue."
     },
     "prefix": {
@@ -78,7 +78,7 @@
         "users": "Users"
     },
     "np": {
-        "now-playing": "Playing now",
+        "now-playing": "Now playing",
         "title": "Title",
         "channel": "Channel",
         "views": "Views",

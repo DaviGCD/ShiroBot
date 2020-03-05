@@ -12,7 +12,7 @@ module.exports = class VolumeCommand extends Command {
     }
 
     run({ message, args, server }, t) {
-        let role = message.guild.roles.get(server.djRole)
+        let role = message.guild.roles.cache.get(server.djRole)
         if (!role) {
             if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
             if (!message.member.voice.channel) return message.channel.send(t("commands:dj-module.user-channel-null"))

@@ -13,9 +13,9 @@ module.exports = class StatsCommand extends Command {
     run({ message, args, server }, t) {
         let memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)
         let uptime = moment.duration(this.client.uptime).format('dd [days] hh [hours] mm [min] ss [secs]')
-        let users = this.client.users.size
-        let servers = this.client.guilds.size
-        let channels = this.client.channels.size
+        let users = this.client.users.cache.size
+        let servers = this.client.guilds.cache.size
+        let channels = this.client.channels.cache.size
         let nodeVersion = process.version
         let discordVersion = require("discord.js").version
         let lavalink = require("discord.js-lavalink").version

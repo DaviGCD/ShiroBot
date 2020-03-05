@@ -82,7 +82,7 @@ module.exports = class LavalinkManager {
         return this.manager.nodes.array()[Math.floor(Math.random() * nodes.length)]
     }
     async join(channel) {
-        return new Player(await this.manager.join({ channel: channel, guild: this.client.channels.get(channel).guild.id, host: this.getBestHost().host }, { selfdeaf: false }))
+        return new Player(await this.manager.join({ channel: channel, guild: this.client.channels.cache.get(channel).guild.id, host: this.getBestHost().host }, { selfdeaf: false }))
     }
 }
 

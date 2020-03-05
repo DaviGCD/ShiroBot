@@ -11,11 +11,11 @@ module.exports = class {
         console.info("Connected")
         function statusRandom() {
             let status = [{
-                name: `${client.config.prefix}help | ${Number(client.users.size).toLocaleString()} imanitys`,
+                name: `${client.config.prefix}help | ${Number(client.users.cache.size).toLocaleString()} imanitys`,
                 type: "PLAYING"
             },
             {
-                name: `Shard: ${client.shard.ids}/${client.shard.count} | ${Number(client.guilds.size).toLocaleString()} guilds`,
+                name: `Shard: ${client.shard.ids}/${client.shard.count} | ${Number(client.guilds.cache.size).toLocaleString()} guilds`,
                 type: "PLAYING"
             },
             {
@@ -27,7 +27,7 @@ module.exports = class {
                 type: "WATCHING"
             },
             {
-                name: `Minha versão atual é: ${require("../package.json").version}`,
+                name: `Minha versão atual é: ${require("../../package.json").version}`,
                 type: "PLAYING"
             },
             {
@@ -35,11 +35,11 @@ module.exports = class {
                 type: "PLAYING"
             },
             {
-                name: `Música com ${Number(client.users.size).toLocaleString()} na shard ${client.shard.ids}`,
+                name: `Música com ${Number(client.users.cache.size).toLocaleString()} na shard ${client.shard.ids}`,
                 type: "LISTENING"
             },
             {
-                name: `Alegria para ${Number(client.users.size).toLocaleString()} imanitys`,
+                name: `Alegria para ${Number(client.users.cache.size).toLocaleString()} imanitys`,
                 type: "STREAMING",
                 url: "https://www.twitch.tv/davigc_ofc"
             }]

@@ -11,7 +11,7 @@ module.exports = class DJCommand extends Command {
     }
 
     run({ message, args, server }, t) {
-        let role = message.mentions.roles.first() || message.guild.roles.get(`${args[0]}`.replace(/[<@&>]/g))
+        let role = message.mentions.roles.first() || message.guild.roles.cache.get(`${args[0]}`.replace(/[<@&>]/g))
         if (!role) {
             const embed = new MessageEmbed()
                 .setColor(this.client.colors.default)

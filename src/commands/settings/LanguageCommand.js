@@ -11,7 +11,7 @@ module.exports = class LanguageCommand extends Command {
 
     run({ message, args, server }, t) {
 
-        let ascii = `== LANGUAGE LIST ==\n\n• Português :: Traduzida por: ${this.client.users.get("318155799270522880").username}\n• English :: Translated by: ${this.client.users.get("318155799270522880").username}`
+        let ascii = `== LANGUAGE LIST ==\n\n• Português :: Traduzida por: ${this.client.users.cache.get("318155799270522880").username}\n• English :: Translated by: ${this.client.users.cache.get("318155799270522880").username}`
         message.channel.send(ascii, { code: "asciidoc" }).then(msg => {
             setTimeout(() => {
                 msg.react("🇧🇷")
