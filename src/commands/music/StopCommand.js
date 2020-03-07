@@ -23,7 +23,7 @@ module.exports = class StopCommand extends Command {
             this.client.player.delete(message.guild.id)
             message.channel.send(t("commands:stop", { channel: message.guild.me.voice.channel.name }))
             this.client.lavalink.manager.leave(message.guild.id)
-            this.client.lavalink.manager.delete(message.guild.id)
+            this.client.lavalink.manager.players.delete(message.guild.id)
         } else {
             if (!message.member.roles.has(role.id)) return message.channel.send(t("permissions:dj-permission"))
             if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
@@ -34,7 +34,7 @@ module.exports = class StopCommand extends Command {
             this.client.player.delete(message.guild.id)
             message.channel.send(t("commands:stop", { channel: message.guild.me.voice.channel.name }))
             this.client.lavalink.manager.leave(message.guild.id)
-            this.client.lavalink.manager.delete(message.guild.id)
+            this.client.lavalink.manager.players.delete(message.guild.id)
         }
     }
 }

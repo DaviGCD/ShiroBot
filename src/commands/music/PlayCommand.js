@@ -18,7 +18,7 @@ module.exports = class PlayCommand extends Command {
         if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", { channel: message.guild.me.voice.channel.name }))
         if (!args[0]) return message.channel.send(t("commands:play.args-null"))
 
-        if (this.client.lavalink.manager.has(message.guild.id)) {
+        if (this.client.lavalink.manager.players.has(message.guild.id)) {
             this.client.player.get(message.guild.id).play(args.join(" ")).then(info => {
                 message.channel.send(t("commands:play.add-to-queue", {
                     musicTitle: info.title,
@@ -38,7 +38,7 @@ module.exports = class PlayCommand extends Command {
             })
             music.on("playingEnd", async () => {
                 await this.client.lavalink.manager.leave(message.guild.id)
-                this.client.lavalink.manager.delete(message.guild.id)
+                this.client.lavalink.manager.players.delete(message.guild.id)
             })
             music.play(args.join(" "));
             this.client.player.set(message.guild.id, music)

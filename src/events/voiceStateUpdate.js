@@ -8,7 +8,7 @@ module.exports = class VoiceStateUptade {
       let voiceChannel = this.client.channels.cache.get(this.client.player.get(oldMember.guild.id).player.channel)
       if (voiceChannel.members.size === 1) {
         await this.client.lavalink.manager.leave(oldMember.guild.id)
-        this.client.lavalink.manager.delete(oldMember.guild.id)
+        this.client.lavalink.manager.players.delete(oldMember.guild.id)
         this.client.player.delete(oldMember.guild.id)
       }
     }

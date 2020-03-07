@@ -75,6 +75,7 @@ module.exports = class LavalinkManager {
     constructor(client) {
         this.client = client
         this.manager = new PlayerManager(client, nodes, {
+            user: this.client.user.id,
             shards: this.client.shard.count
         })
     }

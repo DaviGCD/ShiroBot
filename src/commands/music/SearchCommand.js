@@ -38,7 +38,7 @@ module.exports = class SearchCommand extends Command {
             const videoIndex = Number(response.first().content)
             vdo = await youtube.getVideoByID(videos[videoIndex - 1].id)
 
-            if (this.client.lavalink.manager.has(message.guild.id)) {
+            if (this.client.lavalink.manager.players.has(message.guild.id)) {
                 this.client.player.get(message.guild.id).play(vdo.url).then(info => {
                     message.channel.send(t("commands:play.add-to-queue", {
                         musicTitle: info.title,
@@ -58,7 +58,7 @@ module.exports = class SearchCommand extends Command {
                 })
                 music.on("playingEnd", async () => {
                     await this.client.lavalink.manager.leave(message.guild.id)
-                    this.client.lavalink.manager.delete(message.guild.id)
+                    this.client.lavalink.manager.players.delete(message.guild.id)
                 })
                 music.play(vdo.title);
                 this.client.player.set(message.guild.id, music)
