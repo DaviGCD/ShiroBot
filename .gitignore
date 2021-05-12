@@ -1,5 +1,5 @@
 node_modules/
-lavalinkConfig.js
+LavalinkConfig.js
 package-lock.json
 .env
 .idea
