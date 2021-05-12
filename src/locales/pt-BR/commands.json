@@ -1,114 +1,114 @@
 {
-    "blacklist": {
-        "banned": "Usuário banido com sucesso!",
-        "unbanned": "Usuário desbanido com sucesso",
-        "member-args-null": "Você precisa informar o ID do usuário."
-    },
-    "dj-module": {
-        "user-channel-null": "Você não se encontra em nenhum canal voz.",
-        "user-another-channel": "Você precisa estar no `{{channel}}` pois é lá que eu me encontro.",
-        "queue-null": "No momento a fila, deste servidor está vazia.",
-        "playing-null": "No momento não estou tocando nenhuma música.",
-        "dj": {
-            "args-null": "A permissão de DJ foi criada para não permitir pessoas de abusarem dos comandos de música, para adquirir a permissão de DJ, é necessário configurar usando `{{prefix}}dj <@cargo ou o ID do cargo>`, caso já possua isto configurado, basta dar o cargo para os membros que você quer que tenha a permissão de DJ, e pronto!\n\nBom... Agora que você descobriu como ganhar essa permissão, boa sorte e divertimento com os meus comandos de música e até logo!",
-            "success": "Cargo de DJ alterado com sucesso."
-        }
-    },
-    "play": {
-        "args-null": "Você precisa informar o nome ou URL da música.",
-        "playing-now": "Tocando agora `{{musicTitle}}` enviado por `{{musicAuthor}}` duração: `{{musicTime}}`.",
-        "add-to-queue": "`{{musicTitle}}` por `{{musicAuthor}}` duração: `{{musicTime}}` foi adicionada a fila."
-    },
-    "prefix": {
-        "args-null": "Você não informou o prefix que deseja colocar.",
-        "success": "Prefixo alterado com sucesso!"
-    },
-    "seek": {
-        "seeked": "A posição da música atual foi alterada com sucesso.",
-        "args-null": "Você precisa informar o tempo para poder alterar.",
-        "correct-use": "Uso correto do comando: `{{prefix}}seek 160`"
-    },
-    "skip": "Música pulada com sucesso.",
-    "stop": "Música parada e a lista foi limpa com sucesso, estou saindo do {{channel}}.",
-    "volume": {
-        "max-and-min": "O meu volume máximo é de `{{volume}}` até `100`",
-        "changed": "O meu volume foi alterado para `{{volume}}/100`",
-        "current": "O meu volume atual é `{{volume}}/100`"
-    },
-    "help": {
-        "music": "**Música**",
-        "misc": "**Miscelanêa**",
-        "settings": "**Configurações**",
-        "another-links": "Outros links",
-        "total-command": "Eu tenho ao todo {{cmd}} comandos."
-    },
-    "dm": {
-        "send-dm": "Enviei no seu privado, dê uma olhada lá.",
-        "dm-closed": "O seu privado está fechado, eu não consigo enviar as informações lá."
-    },
-    "invite": {
-        "title": "Meu convite",
-        "description": "Pelo visto eu te agradei, né? Bom... Se deseja me adicionar no seu servidor do discord, basta clicar [aqui]({{invite}}) e tenha um bom divertimento.\n\nCaso precise de ajuda, suporte ou esteja com alguma dúvida, entre em meu servidor de suporte clicando [aqui](https://discord.gg/c8EWvFK), obrigada por me escolher."
-    },
-    "loop": {
-        "enable": "Modo repetir foi ativado com sucesso para a música `{{music}}`.",
-        "disable": "Modo repetir foi desativado com sucesso para a música `{{music}}`."
-    },
-    "resume": {
-        "paused": "A música não está pausada.",
-        "resumed": "Música retomada, tenha um bom batidão."
-    },
-    "pause": {
-        "paused": "Música pausada com sucesso.",
-        "resumed": "A música já está pausada."
-    },
-    "changeavatar": {
-        "args-null": "Você precisa informar a URL do meu novo avatar.",
-        "success": "Avatar alterado com sucesso."
-    },
-    "stats": {
-        "memory": "Memória",
-        "uptime": "Uptime",
-        "servers": "Servidores",
-        "channels": "Canais",
-        "node-version": "Node.js",
-        "discord-version": "discord.js",
-        "lavalink": "discord.js-lavalink",
-        "shards": "Shards",
-        "users": "Usuários"
-    },
-    "np": {
-        "now-playing": "Tocando agora",
-        "title": "Titulo",
-        "channel": "Canal",
-        "views": "Visualizações",
-        "like": "Gostei",
-        "dislike": "Não gostei",
-        "comments": "Comentários",
-        "duration": "Duração",
-        "link": "Link",
-        "loop": "Modo repetir"
-    },
-    "true": "Ativado",
-    "false": "Desativado",
-    "click-here": "clique aqui",
-    "queue": {
-        "pages": "Página {{page}} de {{pages}}",
-        "title": "Músicas que estão na fila"
-    },
-    "shuffle": "Fila embaralhada com sucesso.",
-    "remove": {
-        "args-null": "Informe um número válido.",
-        "not-number": "Você informou um número inválido.",
-        "max-and-minimum": "Você só pode remover entre 1 a {{max}}.",
-        "removed": "Música removida com sucesso."
-    },
-    "search": {
-        "args-null": "Informe o nome da música desejada.",
-        "title": "Resultado da pesquisa.",
-        "no-results": "Tempo esgotado.",
-        "invalid": "Você informou um valor inválido.",
-        "time": "Você tem 20 segundos para escolher."
-    },
-    "support-server": "Servidor de suporte"
+  "blacklist": {
+    "banned": "Usuário banido com sucesso!",
+    "unbanned": "Usuário desbanido com sucesso",
+    "member-args-null": "Você precisa informar o ID do usuário."
+  },
+  "dj-module": {
+    "user-channel-null": "Você não se encontra em nenhum canal voz.",
+    "user-another-channel": "Você precisa estar no `{{channel}}` pois é lá que eu me encontro.",
+    "queue-null": "No momento a fila, deste servidor está vazia.",
+    "playing-null": "No momento não estou tocando nenhuma música.",
+    "dj": {
+      "args-null": "A permissão de DJ foi criada para não permitir pessoas de abusarem dos comandos de música, para adquirir a permissão de DJ, é necessário configurar usando `{{prefix}}dj <@cargo ou o ID do cargo>`, caso já possua isto configurado, basta dar o cargo para os membros que você quer que tenha a permissão de DJ, e pronto!\n\nBom... Agora que você descobriu como ganhar essa permissão, boa sorte e divertimento com os meus comandos de música e até logo!",
+      "success": "Cargo de DJ alterado com sucesso."
+    }
+  },
+  "play": {
+    "args-null": "Você precisa informar o nome ou URL da música.",
+    "playing-now": "Tocando agora `{{musicTitle}}` enviado por `{{musicAuthor}}` duração: `{{musicTime}}`.",
+    "add-to-queue": "`{{musicTitle}}` por `{{musicAuthor}}` duração: `{{musicTime}}` foi adicionada a fila."
+  },
+  "prefix": {
+    "args-null": "Você não informou o prefix que deseja colocar.",
+    "success": "Prefixo alterado com sucesso!"
+  },
+  "seek": {
+    "seeked": "A posição da música atual foi alterada com sucesso.",
+    "args-null": "Você precisa informar o tempo para poder alterar.",
+    "correct-use": "Uso correto do comando: `{{prefix}}seek 160`"
+  },
+  "skip": "Música pulada com sucesso.",
+  "stop": "Música parada e a lista foi limpa com sucesso, estou saindo do {{channel}}.",
+  "volume": {
+    "max-and-min": "O meu volume máximo é de `{{volume}}` até `100`",
+    "changed": "O meu volume foi alterado para `{{volume}}/100`",
+    "current": "O meu volume atual é `{{volume}}/100`"
+  },
+  "help": {
+    "music": "**Música**",
+    "misc": "**Miscelanêa**",
+    "settings": "**Configurações**",
+    "another-links": "Outros links",
+    "total-command": "Eu tenho ao todo {{cmd}} comandos."
+  },
+  "dm": {
+    "send-dm": "Enviei no seu privado, dê uma olhada lá.",
+    "dm-closed": "O seu privado está fechado, eu não consigo enviar as informações lá."
+  },
+  "invite": {
+    "title": "Meu convite",
+    "description": "Pelo visto eu te agradei, né? Bom... Se deseja me adicionar no seu servidor do discord, basta clicar [aqui]({{invite}}) e tenha um bom divertimento.\n\nCaso precise de ajuda, suporte ou esteja com alguma dúvida, entre em meu servidor de suporte clicando [aqui](https://discord.gg/c8EWvFK), obrigada por me escolher."
+  },
+  "loop": {
+    "enable": "Modo repetir foi ativado com sucesso para a música `{{music}}`.",
+    "disable": "Modo repetir foi desativado com sucesso para a música `{{music}}`."
+  },
+  "resume": {
+    "paused": "A música não está pausada.",
+    "resumed": "Música retomada, tenha um bom batidão."
+  },
+  "pause": {
+    "paused": "Música pausada com sucesso.",
+    "resumed": "A música já está pausada."
+  },
+  "changeavatar": {
+    "args-null": "Você precisa informar a URL do meu novo avatar.",
+    "success": "Avatar alterado com sucesso."
+  },
+  "stats": {
+    "memory": "Memória",
+    "uptime": "Uptime",
+    "servers": "Servidores",
+    "channels": "Canais",
+    "node-version": "Node.js",
+    "discord-version": "discord.js",
+    "lavalink": "discord.js-lavalink",
+    "shards": "Shards",
+    "users": "Usuários"
+  },
+  "np": {
+    "now-playing": "Tocando agora",
+    "title": "Titulo",
+    "channel": "Canal",
+    "views": "Visualizações",
+    "like": "Gostei",
+    "dislike": "Não gostei",
+    "comments": "Comentários",
+    "duration": "Duração",
+    "link": "Link",
+    "loop": "Modo repetir"
+  },
+  "true": "Ativado",
+  "false": "Desativado",
+  "click-here": "clique aqui",
+  "queue": {
+    "pages": "Página {{page}} de {{pages}}",
+    "title": "Músicas que estão na fila"
+  },
+  "shuffle": "Fila embaralhada com sucesso.",
+  "remove": {
+    "args-null": "Informe um número válido.",
+    "not-number": "Você informou um número inválido.",
+    "max-and-minimum": "Você só pode remover entre 1 a {{max}}.",
+    "removed": "Música removida com sucesso."
+  },
+  "search": {
+    "args-null": "Informe o nome da música desejada.",
+    "title": "Resultado da pesquisa.",
+    "no-results": "Tempo esgotado.",
+    "invalid": "Você informou um valor inválido.",
+    "time": "Você tem 20 segundos para escolher."
+  },
+  "support-server": "Servidor de suporte"
 }

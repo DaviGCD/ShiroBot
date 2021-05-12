@@ -1,15 +1,12 @@
 const { EventListener } = require('../utils')
-const { options } = require('../../config')
+
 module.exports = class ConnectListener extends EventListener {
-    constructor() {
-        super('connect')
-    }
+  constructor() {
+    super('connect')
+  }
 
-    async run(client, id) {
-        if (id === options.maxShards - 1) {
-            client.emit('ready', client)
-        }
+  async run(client, id) {
 
-        console.log(`Shard ${id} has been successfully connected.`)
-    }
+    console.log(`Shard ${id} has been successfully connected.`)
+  }
 }
