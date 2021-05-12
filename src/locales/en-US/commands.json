@@ -81,10 +81,7 @@
         "now-playing": "Now playing",
         "title": "Title",
         "channel": "Channel",
-        "views": "Views",
-        "like": "Likes",
-        "dislike": "Dislikes",
-        "comments": "Comments",
+        "requestedBy": "Requested by",
         "duration": "Duration",
         "link": "Link",
         "loop": "Repeat mode"

@@ -1,48 +1,45 @@
 {
-  "name": "shiro-rewrite",
-  "version": "3.2.2",
-  "description": "A simple music bot from Discord in discord.js and lavalink",
-  "main": "shard.js",
-  "engines": {
-    "node": "12.x"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DaviGCD/ShiroBot.git"
-  },
-  "keywords": [
-    "lavalink",
-    "discord-bots",
-    "discord.js",
-    "discord.js-lavalink"
-  ],
-  "author": "DaviGC_",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DaviGCD/ShiroBot/issues"
-  },
-  "homepage": "https://github.com/DaviGCD/ShiroBot#readme",
-  "dependencies": {
-    "colors": "^1.3.3",
-    "dblapi.js": "^2.3.0",
-    "discord.js": "github:discordjs/discord.js#master",
-    "discord.js-lavalink": "^3.0.0",
-    "express": "^4.17.1",
-    "i18next": "^17.0.13",
-    "i18next-node-fs-backend": "^2.1.3",
-    "moment": "^2.24.0",
-    "moment-duration-format": "^2.3.2",
-    "mongoose": "^5.6.11",
-    "node-fetch": "^2.6.0",
-    "parse-duration": "^0.1.1",
-    "simple-youtube-api": "^5.2.1",
-    "youtube-info": "^1.3.2"
-  },
-  "devDependencies": {
-    "dotenv": "^8.1.0"
-  }
+    "name": "shiro-rewrite",
+    "version": "3.2.2",
+    "description": "A NGNL discord bot music make in eris and use lavalink player.",
+    "main": "index.js",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "scripts": {
+        "start": "node ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DaviGCD/ShiroBot.git"
+    },
+    "keywords": [
+        "lavalink",
+        "discord-bot",
+        "eris",
+        "lavacord"
+    ],
+    "author": "DaviGC_",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/DaviGCD/ShiroBot/issues"
+    },
+    "homepage": "https://github.com/DaviGCD/ShiroBot#readme",
+    "dependencies": {
+        "@lavacord/eris": "0.0.3",
+        "axios": "^0.21.1",
+        "dblapi.js": "^2.3.0",
+        "eris": "github:abalabahaha/eris#dev",
+        "eris-additions": "^1.4.1",
+        "i18next": "^17.0.13",
+        "i18next-node-fs-backend": "^2.1.3",
+        "moment": "^2.24.0",
+        "moment-duration-format": "^2.3.2",
+        "mongoose": "^5.12.2",
+        "parse-duration": "^0.1.1",
+        "simple-youtube-api": "^5.2.1"
+    },
+    "devDependencies": {
+        "dotenv": "^8.1.0"
+    }
 }

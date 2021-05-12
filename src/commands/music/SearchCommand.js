@@ -1,46 +1,45 @@
-const Command = require("../../structures/command")
-const YouTube = require("simple-youtube-api")
-const youtube = new YouTube("AIzaSyAfEYgTf8XmbPe8mBz9baavfpPG0n5jTnI")
-const { MessageEmbed } = require("discord.js")
-const moment = require("moment")
-require("moment-duration-format")
+const { Command, EmbedBuilder } = require('../../utils')
+const YouTube = require('simple-youtube-api')
+const youtube = new YouTube('AIzaSyAfEYgTf8XmbPe8mBz9baavfpPG0n5jTnI')
+const moment = require('moment')
+require('moment-duration-format')
 
 module.exports = class SearchCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "search",
-            aliases: ["procurar", "pesquisar"],
-            category: "music",
-            ClientPermission: ["CONNECT", "SPEAK"]
+    constructor() {
+        super({
+            name: 'search',
+            aliases: ['procurar', 'pesquisar'],
+            category: 'music',
+            ClientPermission: ['CONNECT', 'SPEAK']
         })
     }
 
-    async run({ message, args, server }, t) {
-        if (!message.member.voice.channel) return message.channel.send(t("commands:dj-module.user-channel-null"))
-        if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", { channel: message.guild.me.voice.channel.name }))
-        if (!args[0]) return message.channel.send(t("commands:search.args-null"))
+    async run(ctx) {
+        if (!ctx.message.member.voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-channel-null'))
+        if (ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID && ctx.message.member.voiceState.channelID !== ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-another-channel', { channel: ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID.name }))
+        if (!ctx.args[0]) return ctx.quote(ctx.locale('commands:search.args-null'))
         let vdo;
         try {
-            const videos = await youtube.searchVideos(args.join(" "), 10)
+            const videos = await youtube.searchVideos(ctx.args.join(' '), 10)
             let number = 1
-            const embed = new MessageEmbed()
-                .setColor(this.client.colors.default)
-                .setTitle(t("commands:search.title"))
-                .setDescription(videos.map(video => `[**${number++} -** ${video.title} - ${video.channel.title}](${video.url})`).join("\n"))
-                .setFooter(t("commands:search.time"))
-            message.channel.send(embed)
-            const response = await message.channel.awaitMessages(msg => (msg.content > 0 && msg.content < 10) && msg.author.id === message.author.id, {
+            const embed = new EmbedBuilder()
+                .setColor('DEFAULT')
+                .setTitle(ctx.locale('commands:search.title'))
+                .setDescription(videos.map(video => `[**${number++} -** ${video.title} - ${video.channel.title}](${video.url})`).join('\n'))
+                .setFooter(ctx.locale('commands:search.time'))
+            ctx.quote(embed)
+            const response = await ctx.message.channel.awaitMessages(msg => (msg.content > 0 && msg.content < 10) && msg.author.id === ctx.message.author.id, {
                 max: 1,
                 time: 20000,
-                errors: ["time"]
+                errors: ['time']
             })
-            if (!response) return message.channel.send(t("commands:search.invalid"))
+            if (!response) return ctx.quote(ctx.locale('commands:search.invalid'))
             const videoIndex = Number(response.first().content)
             vdo = await youtube.getVideoByID(videos[videoIndex - 1].id)
 
-            if (this.client.lavalink.manager.players.has(message.guild.id)) {
-                this.client.player.get(message.guild.id).play(vdo.url).then(info => {
-                    message.channel.send(t("commands:play.add-to-queue", {
+            if (ctx.client.lavalink.manager.players.has(ctx.message.guildID)) {
+                ctx.client.player.get(ctx.message.guildID).play(vdo.url).then(info => {
+                    ctx.quote(ctx.locale('commands:play.add-to-queue', {
                         musicTitle: info.title,
                         musicAuthor: info.author,
                         musicTime: moment.duration(info.length).format('dd:hh:mm:ss')
@@ -48,24 +47,24 @@ module.exports = class SearchCommand extends Command {
                 })
 
             } else {
-                let music = await this.client.lavalink.join(message.member.voice.channel.id)
+                let music = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID.id)
                 music.on('playingNow', track => {
-                    message.channel.send(t("commands:play.playing-now", {
+                    ctx.quote(ctx.locale('commands:play.playing-now', {
                         musicTitle: track.info.title,
                         musicAuthor: track.info.author,
                         musicTime: moment.duration(track.info.length).format('dd:hh:mm:ss')
                     }))
                 })
-                music.on("playingEnd", async () => {
-                    await this.client.lavalink.manager.leave(message.guild.id)
-                    this.client.lavalink.manager.players.delete(message.guild.id)
+                music.on('playingEnd', async () => {
+                    await ctx.client.lavalink.manager.leave(ctx.message.guildID)
+                    ctx.client.lavalink.manager.players.delete(ctx.message.guildID)
                 })
                 music.play(vdo.title);
-                this.client.player.set(message.guild.id, music)
+                ctx.client.player.set(ctx.message.guildID, music)
             }
         } catch (error) {
             console.error(error)
-            message.channel.send(t("commands:search.no-results"))
+            ctx.quote(ctx.locale('commands:search.no-results'))
         }
     }
 }

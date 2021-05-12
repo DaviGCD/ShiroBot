@@ -1,37 +1,37 @@
-const Command = require("../../structures/command")
+const { Command } = require('../../utils')
 module.exports = class VolumeCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "volume",
-            aliases: ["vol"],
-            category: "music",
+    constructor() {
+        super({
+            name: 'volume',
+            aliases: ['vol'],
+            category: 'music',
             UserPermission: null,
             ClientPermission: null,
             OnlyDevs: false
         })
     }
 
-    run({ message, args, server }, t) {
-        let role = message.guild.roles.cache.get(server.djRole)
+    run(ctx) {
+        let role = ctx.message.channel.guild.roles.get(ctx.db.guild.djRole)
         if (!role) {
-            if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
-            if (!message.member.voice.channel) return message.channel.send(t("commands:dj-module.user-channel-null"))
-            if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", { channel: message.guild.me.voice.channel.name }))
-            if (!args[0]) return message.channel.send(t("commands:current", { volume: this.client.player.get(message.guild.id).player.state.volume }))
-            if (args[0] > 100 && args[0] < 5) return message.channel.send(t("commands:volume.max-and-min", { volume: this.client.player.get(message.guild.id).player.state.volume }))
+            if (!ctx.client.player.has(ctx.message.guildID)) return ctx.quote(ctx.locale('commands:dj-module.playing-null'))
+            if (!ctx.message.member.voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-channel-null'))
+            if (ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID && ctx.message.member.voiceState.channelID !== ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-another-channel', { channel: ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID.name }))
+            if (!ctx.args[0]) return ctx.quote(ctx.locale('commands:current', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume }))
+            if (ctx.args[0] > 100 && ctx.args[0] < 5) return ctx.quote(ctx.locale('commands:volume.max-and-min', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume }))
 
-            this.client.player.get(message.guild.id).player.volume(args[0])
-            message.channel.send(t("commands:volume.changed", { volume: this.client.player.get(message.guild.id).player.state.volume }))
+            ctx.client.player.get(ctx.message.guildID).player.volume(ctx.args[0])
+            ctx.quote(ctx.locale('commands:volume.changed', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume }))
         } else {
-            if (!message.member.roles.has(role.id)) return message.channel.send(t("permissions:dj-permission"))
-            if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
-            if (!message.member.voice.channel) return message.channel.send(t("commands:dj-module.user-channel-null"))
-            if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", { channel: message.guild.me.voice.channel.name }))
-            if (!args[0]) return message.channel.send(t("commands:current", { volume: this.client.player.get(message.guild.id).player.state.volume }))
-            if (args[0] > 100 && args[0] < 5) return message.channel.send(t("commands:volume.max-and-min", { volume: this.client.player.get(message.guild.id).player.state.volume }))
+            if (!ctx.message.member.roles.has(role.id)) return ctx.quote(ctx.locale('permissions:dj-permission'))
+            if (!ctx.client.player.has(ctx.message.guildID)) return ctx.quote(ctx.locale('commands:dj-module.playing-null'))
+            if (!ctx.message.member.voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-channel-null'))
+            if (ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID && ctx.message.member.voiceState.channelID !== ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-another-channel', { channel: ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID.name }))
+            if (!ctx.args[0]) return ctx.quote(ctx.locale('commands:current', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume }))
+            if (ctx.args[0] > 100 && ctx.args[0] < 5) return ctx.quote(ctx.locale('commands:volume.max-and-min', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume }))
 
-            this.client.player.get(message.guild.id).player.volume(args[0])
-            message.channel.send(t("commands:volume.changed", { volume: this.client.player.get(message.guild.id).player.state.volume }))
+            ctx.client.player.get(ctx.message.guildID).player.volume(ctx.args[0])
+            ctx.quote(ctx.locale('commands:volume.changed', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume }))
         }
     }
 }

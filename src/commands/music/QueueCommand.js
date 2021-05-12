@@ -1,27 +1,26 @@
-const Command = require("../../structures/command")
-const { MessageEmbed } = require("discord.js")
-const moment = require("moment")
-require("moment-duration-format")
+const { Command, EmbedBuilder } = require('../../utils')
+const moment = require('moment')
+require('moment-duration-format')
 module.exports = class QueueCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "playlist",
-            aliases: ["queue", "lista", "list"],
-            category: "music"
+    constructor() {
+        super({
+            name: 'playlist',
+            aliases: ['queue', 'lista', 'list'],
+            category: 'music'
         })
     }
 
-    run({ message, args, server }, t) {
+    run(ctx) {
 
-        if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
-        if (!this.client.player.get(message.guild.id).queue) return message.channel.send(t("commands:dj-module.queue-null"))
+        if (!ctx.client.player.has(ctx.message.guildID)) return ctx.quote(ctx.locale('commands:dj-module.playing-null'))
+        if (!ctx.client.player.get(ctx.message.guildID).queue) return ctx.quote(ctx.locale('commands:dj-module.queue-null'))
         let number = 1
-        const music = this.client.player.get(message.guild.id)
-        let music_info = music.queue.map(video => `[**${number++}** | ${video.info.title} - (${moment.duration(video.info.length).format("dd:hh:mm:ss")})](${video.info.uri})`)
-        const embed = new MessageEmbed()
-            .setColor(this.client.colors.default)
-            .setDescription(music_info)
+        const music = ctx.client.player.get(ctx.message.guildID)
+        let music_info = music.queue.map(video => `[**${number++}** | ${video.info.title} - (${moment.duration(video.info.length).format('dd:hh:mm:ss')})](${video.info.uri}) | \`${video.requestedBy.username}#${video.requestedBy.discriminator} (${video.requestedBy.id})\``)
+        const embed = new EmbedBuilder()
+        embed.setColor('DEFAULT')
+        embed.setDescription(music_info.join('\n'))
 
-        message.channel.send(embed)
+        ctx.quote(embed.build())
     }
 }

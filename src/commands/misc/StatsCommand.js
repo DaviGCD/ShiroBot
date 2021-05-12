@@ -1,27 +1,26 @@
-const Command = require("../../structures/command")
+const { Command } = require('../../utils')
 const moment = require('moment')
 require('moment-duration-format')
 module.exports = class StatsCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "stats",
-            aliases: ["status"],
-            category: "misc"
+    constructor() {
+        super({
+            name: 'stats',
+            aliases: ['status'],
+            category: 'misc'
         })
     }
 
-    run({ message, args, server }, t) {
-        let memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)
-        let uptime = moment.duration(this.client.uptime).format('dd [days] hh [hours] mm [min] ss [secs]')
-        let users = this.client.users.cache.size
-        let servers = this.client.guilds.cache.size
-        let channels = this.client.channels.cache.size
-        let nodeVersion = process.version
-        let discordVersion = require("discord.js").version
-        let lavalink = require("discord.js-lavalink").version
-        let shards = `${this.client.shard.ids}/${this.client.shard.count}`
-        let stats = `== STATISTICS ==\n\n• ${t("commands:stats.memory")} :: ${memory}MB\n• ${t("commands:stats.uptime")} :: ${uptime}\n• ${t("commands:stats.users")} :: ${users}\n• ${t("commands:stats.servers")} :: ${servers}\n• ${t("commands:stats.channels")} :: ${channels}\n• ${t("commands:stats.node-version")} :: ${nodeVersion}\n• ${t("commands:stats.discord-version")} :: ${discordVersion}\n• ${t("commands:stats.lavalink")} :: ${lavalink}\n• ${t("commands:stats.shards")} :: ${shards}`
+    run(ctx) {
+        const memory = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)
+        const uptime = moment.duration(ctx.client.uptime).format('dd [days] hh [hours] mm [min] ss [secs]')
+        const users = ctx.client.users.size
+        const servers = ctx.client.guilds.size
+        const nodeVersion = process.version
+        const discordVersion = require('eris').VERSION
+        const lavalink = require('../../../package.json').dependencies['@lavacord/eris']
+        const shards = `${ctx.message.channel.guild.shard.id}/${ctx.client.shards.size}`
+        const stats = `== STATISTICS ==\n\n• ${ctx.locale('commands:stats.memory')} :: ${memory}MB\n• ${ctx.locale('commands:stats.uptime')} :: ${uptime}\n• ${ctx.locale('commands:stats.users')} :: ${users}\n• ${ctx.locale('commands:stats.servers')} :: ${servers}\n• ${ctx.locale('commands:stats.node-version')} :: ${nodeVersion}\n• eris :: ${discordVersion}\n• lavacord :: ${lavalink}\n• ${ctx.locale('commands:stats.shards')} :: ${shards}`
 
-        message.channel.send(stats, { code: "asciidoc" })
+        ctx.quote(`\`\`\`asciidoc\n${stats}\`\`\``)
     }
 }

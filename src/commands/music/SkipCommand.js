@@ -1,33 +1,33 @@
-const Command = require("../../structures/command")
+const { Command } = require('../../utils')
 module.exports = class SkipCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "skip",
-            aliases: ["pular"],
-            category: "music",
+    constructor() {
+        super({
+            name: 'skip',
+            aliases: ['pular'],
+            category: 'music',
             UserPermission: null,
             ClientPermission: null,
             OnlyDevs: false
         })
     }
 
-    run({ message, args, server }, t) {
-        let role = message.guild.roles.cache.get(server.djRole)
-        if (!message.guild.roles.cache.get(server.djRole)) {
-            if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
-            if (!message.member.voice.channel) return message.channel.send(t("commands:dj-module.user-channel-null"))
-            if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", { channel: message.guild.me.voice.channel.name }))
+    run(ctx) {
+        let role = ctx.message.channel.guild.roles.get(ctx.db.guild.djRole)
+        if (!ctx.message.channel.guild.roles.get(ctx.db.guild.djRole)) {
+            if (!ctx.client.player.has(ctx.message.guildID)) return ctx.quote(ctx.locale('commands:dj-module.playing-null'))
+            if (!ctx.message.member.voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-channel-null'))
+            if (ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID && ctx.message.member.voiceState.channelID !== ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-another-channel', { channel: ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID.name }))
 
-            this.client.player.get(message.guild.id).skip()
-            message.channel.send(t("commands:skip"))
+            ctx.client.player.get(ctx.message.guildID).skip(ctx.message.author)
+            ctx.quote(ctx.locale('commands:skip'))
         } else {
-            if (!message.member.roles.has(role.id)) return message.channel.send(t("permissions:dj-permission"))
-            if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
-            if (!message.member.voice.channel) return message.channel.send(t("commands:dj-module.user-channel-null"))
-            if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", { channel: message.guild.me.voice.channel.name }))
+            if (!ctx.message.member.roles.has(role.id)) return ctx.quote(ctx.locale('permissions:dj-permission'))
+            if (!ctx.client.player.has(ctx.message.guildID)) return ctx.quote(ctx.locale('commands:dj-module.playing-null'))
+            if (!ctx.message.member.voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-channel-null'))
+            if (ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID && ctx.message.member.voiceState.channelID !== ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-another-channel', { channel: ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID.name }))
 
-            this.client.player.get(message.guild.id).skip()
-            message.channel.send(t("commands:skip"))
+            ctx.client.player.get(ctx.message.guildID).skip(ctx.message.author)
+            ctx.quote(ctx.locale('commands:skip'))
         }
     }
 }

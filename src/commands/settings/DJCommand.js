@@ -1,29 +1,28 @@
-const Command = require("../../structures/command")
-const { MessageEmbed } = require("discord.js")
+const { Command, EmbedBuilder } = require('../../utils')
 module.exports = class DJCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "dj",
+    constructor() {
+        super({
+            name: 'dj',
             aliases: [],
-            category: "settings",
-            UserPermission: ["MANAGE_GUILD"]
+            category: 'settings',
+            UserPermission: ['MANAGE_GUILD']
         })
     }
 
-    run({ message, args, server }, t) {
-        let role = message.mentions.roles.first() || message.guild.roles.cache.get(`${args[0]}`.replace(/[<@&>]/g))
+    run(ctx) {
+        let role = ctx.message.mentions.roles.first() || ctx.message.channel.guild.roles.ge(`${ctx.args[0]}`.replace(/[<@&>]/g))
         if (!role) {
-            const embed = new MessageEmbed()
-                .setColor(this.client.colors.default)
-                .setDescription(t("commands:dj-module.dj.args-null", { prefix: server.prefix }))
+            const embed = new EmbedBuilder()
+                .setColor(ctx.client.colors.default)
+                .setDescription(ctx.locale('commands:dj-module.dj.args-null', { prefix: ctx.db.guild.prefix }))
 
-            return message.channel.send(embed)
+            return ctx.quote(embed)
         }
 
 
-        server.djRole = role.id
-        server.save()
+        ctx.db.guild.djRole = role.id
+        ctx.db.guild.save()
 
-        message.channel.send(t("commands:dj-module.dj.success"))
+        ctx.quote(ctx.locale('commands:dj-module.dj.success'))
     }
 }

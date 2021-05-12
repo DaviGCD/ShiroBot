@@ -1,38 +1,32 @@
-const Command = require("../../structures/command")
-const { MessageEmbed } = require("discord.js")
-const youtube = require("youtube-info")
-const moment = require("moment")
-require("moment-duration-format")
+const { Command, EmbedBuilder } = require('../../utils')
+const moment = require('moment')
+require('moment-duration-format')
+
 module.exports = class NowPlayingCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "nowplaying",
-            aliases: ["playing", "np", "playingnow"],
-            category: "music"
+    constructor() {
+        super({
+            name: 'nowplaying',
+            aliases: ['playing', 'np', 'playingnow'],
+            category: 'music'
         })
     }
 
-    run({ message, args, server }, t) {
+    run(ctx) {
 
-        if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.playing-null"))
-        const music = this.client.player.get(message.guild.id)
-        youtube(music.nowPlaying.identifier, function (err, info) {
-            const embed = new MessageEmbed()
-            embed.setColor('#b200ff')
-            embed.setTitle(t("commands:np.now-playing"))
-            embed.setURL(`https://youtu.be/${music.nowPlaying.identifier}`)
-            embed.setThumbnail(info.thumbnailUrl)
-            embed.addField(t("commands:np.title"), info.title, true)
-            embed.addField(t("commands:np.channel"), info.owner, true)
-            embed.addField(t("commands:np.views"), info.views, true)
-            embed.addField(t("commands:np.like"), info.likeCount, true)
-            embed.addField(t("commands:np.dislike"), info.dislikeCount, true)
-            embed.addField(t("commands:np.comments"), info.commentCount, true)
-            embed.addField(t("commands:np.duration"), `[${moment.duration(music.player.state.position).format('dd:hh:mm:ss', { stopTrim: "m"})}/${moment.duration(music.nowPlaying.length).format('dd:hh:mm:ss')}]`, true)
-            embed.addField(t("commands:np.loop"), music.repeat ? t("commands:true") : t("commands:false"), true)
-            embed.addField(t("commands:np.link"), `[${t("commands:click-here")}](${info.url})`, true)
+        if (!ctx.client.player.has(ctx.message.guildID)) return ctx.quote(ctx.locale('commands:dj-module.playing-null'))
+        const music = ctx.client.player.get(ctx.message.guildID)
+        const embed = new EmbedBuilder()
+        embed.setColor('DEFAULT')
+        embed.setTitle(ctx.locale('commands:np.now-playing'))
+        embed.setURL(`https://youtu.be/${music.np.identifier}`)
+        embed.setThumbnail(`https://i.ytimg.com/vi/${music.np.identifier}/maxresdefault.jpg`)
+        embed.addField(ctx.locale('commands:np.title'), music.np.title)
+        embed.addField(ctx.locale('commands:np.channel'), music.np.author)
+        embed.addField(ctx.locale('commands:np.requestedBy'), `${music.np.requestedBy.username}#${music.np.requestedBy.discriminator} (\`${music.np.requestedBy.id}\`)`)
+        embed.addField(ctx.locale('commands:np.duration'), `[${moment.duration(music.player.state.position).format('dd:hh:mm:ss', { stopTrim: 'm' })}/${moment.duration(music.np.length).format('dd:hh:mm:ss')}]`)
+        embed.addField(ctx.locale('commands:np.loop'), music.repeat ? ctx.locale('commands:true') : ctx.locale('commands:false'))
+        embed.addField(ctx.locale('commands:np.link'), `[${ctx.locale('commands:click-here')}](${music.np.uri})`)
 
-            message.channel.send(embed)
-        })
+        ctx.quote(embed.build())
     }
 }

@@ -1,28 +1,25 @@
-const Command = require("../../structures/command")
-const { MessageEmbed } = require("discord.js")
+const { Command, EmbedBuilder } = require('../../utils')
 module.exports = class InviteCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "invite",
-            aliases: ["convite", "convidar", "adicionar"],
-            category: "misc",
+    constructor() {
+        super({
+            name: 'invite',
+            aliases: ['convite', 'convidar', 'adicionar'],
+            category: 'misc',
             UserPermission: null,
             ClientPermission: null,
             OnlyDevs: false
         })
     }
 
-    run({ message, args, server }, t) {
-        this.client.generateInvite(37047552).then(invite => {
-            const embed = new MessageEmbed()
-                .setColor(this.client.colors.default)
-                .addField(t("commands:invite.title"), t("commands:invite.description", { invite: invite }))
-
-            message.author.send(embed).then(() => {
-                message.channel.send(t("commands:dm.send-dm"))
-            }).catch(() => {
-                message.channel.send(t("commands:dm.dm-closed"))
-            })
-        })
+    run(ctx) {
+        const embed = new EmbedBuilder()
+        embed.setColor('DEFAULT')
+        embed.addField(ctx.locale('commands:invite.title'), ctx.locale('commands:invite.description', { invite: `https://discord.com/api/oauth2/authorize?client_id=${ctx.client.user.id}&permissions=37047552&scope=bot` }))
+        
+        ctx.message.author.getDMChannel().then(channel => channel.createMessage(embed.build()).then(() => {
+            ctx.quote(ctx.locale('commands:dm.send-dm'))
+        }).catch(() => {
+            ctx.quote(ctx.locale('commands:dm.dm-closed'))
+        }))
     }
 }

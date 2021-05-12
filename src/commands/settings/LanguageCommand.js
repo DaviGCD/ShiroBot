@@ -1,39 +1,39 @@
-const Command = require("../../structures/command")
+const { Command } = require('../../utils')
 module.exports = class LanguageCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "language",
-            aliases: ["linguagem", "lang", "idioma"],
-            category: "settings",
-            UserPermission: ["MANAGE_GUILD"]
+    constructor() {
+        super({
+            name: 'language',
+            aliases: ['linguagem', 'lang', 'idioma'],
+            category: 'settings',
+            UserPermission: ['MANAGE_GUILD']
         })
     }
 
-    run({ message, args, server }, t) {
+    run(ctx) {
 
-        let ascii = `== LANGUAGE LIST ==\n\n• Português :: Traduzida por: ${this.client.users.cache.get("318155799270522880").username}\n• English :: Translated by: ${this.client.users.cache.get("318155799270522880").username}`
-        message.channel.send(ascii, { code: "asciidoc" }).then(msg => {
+        let ascii = `== LANGUAGE LIST ==\n\n• Português :: Traduzida por: ${ctx.client.users.cache.gectx.locale('318155799270522880').username}\n• English :: Translated by: ${ctx.client.users.cache.gectx.locale('318155799270522880').username}`
+        ctx.quote(ascii, { code: 'asciidoc' }).then(msg => {
             setTimeout(() => {
-                msg.react("🇧🇷")
+                msg.reacctx.locale('🇧🇷')
             }, 500)
             setTimeout(() => {
-                msg.react("🇺🇸")
+                msg.reacctx.locale('🇺🇸')
             }, 1000)
 
-            const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "🇧🇷", "🇺🇸") && (u.id !== this.client.user.id && u.id === message.author.id))
-            collector.on("collect", r => {
+            const collector = msg.createReactionCollector((r, u) => (r.emoji.name === '🇧🇷', '🇺🇸') && (u.id !== ctx.client.user.id && u.id === ctx.message.author.id))
+            collector.on('collect', r => {
                 switch (r.emoji.name) {
-                    case "🇧🇷":
-                        server.lang = "pt-BR"
-                        server.save()
+                    case '🇧🇷':
+                        ctx.db.guild.lang = 'pt-BR'
+                        ctx.db.guild.save()
                         msg.delete()
-                        message.channel.send("Agora eu irei falar em `Português BR`.")
+                        ctx.quote('Agora eu irei falar em `Português BR`.')
                         break;
-                    case "🇺🇸":
-                        server.lang = "en-US"
-                        server.save()
+                    case '🇺🇸':
+                        ctx.db.guild.lang = 'en-US'
+                        ctx.db.guild.save()
                         msg.delete()
-                        message.channel.send("Now I will speak `English US`.")
+                        ctx.quote('Now I will speak `English US`.')
                 }
             })
         })

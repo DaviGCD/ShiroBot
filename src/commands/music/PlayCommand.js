@@ -1,26 +1,27 @@
-const Command = require("../../structures/command")
-const moment = require("moment")
-require("moment-duration-format")
+const { Command } = require('../../utils')
+const moment = require('moment')
+require('moment-duration-format')
 module.exports = class PlayCommand extends Command {
-    constructor(client) {
-        super(client, {
-            name: "play",
-            aliases: ["tocar"],
-            category: "music",
+    constructor() {
+        super({
+            name: 'play',
+            aliases: ['tocar'],
+            category: 'music',
             UserPermission: null,
-            ClientPermission: ["CONNECT", "SPEAK", "USE_VAD"],
+            ClientPermission: ['CONNECT', 'SPEAK', 'USE_VAD'],
             OnlyDevs: false
         })
     }
 
-    async run({ message, args, server }, t) {
-        if (!message.member.voice.channel) return message.channel.send(t("commands:dj-module.user-channel-null"))
-        if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.channel.send(t("commands:dj-module.user-another-channel", { channel: message.guild.me.voice.channel.name }))
-        if (!args[0]) return message.channel.send(t("commands:play.args-null"))
+    async run(ctx) {
+        if (!ctx.message.member.voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-channel-null'))
+        if (ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID
+            && ctx.message.member.voiceState.channelID !== ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-another-channel', { channel: ctx.client.getChannel(ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID).name }))
+        if (!ctx.args[0]) return ctx.quote(ctx.locale('commands:play.args-null'))
 
-        if (this.client.lavalink.manager.players.has(message.guild.id)) {
-            this.client.player.get(message.guild.id).play(args.join(" ")).then(info => {
-                message.channel.send(t("commands:play.add-to-queue", {
+        if (ctx.client.lavalink.manager.players.has(ctx.message.guildID)) {
+            ctx.client.player.get(ctx.message.guildID).play(ctx.args.join(' '), ctx.message.author).then(info => {
+                ctx.quote(ctx.locale('commands:play.add-to-queue', {
                     musicTitle: info.title,
                     musicAuthor: info.author,
                     musicTime: moment.duration(info.length).format('dd:hh:mm:ss')
@@ -28,20 +29,20 @@ module.exports = class PlayCommand extends Command {
             })
 
         } else {
-            let music = await this.client.lavalink.join(message.member.voice.channel.id)
-            music.on('playingNow', track => {
-                message.channel.send(t("commands:play.playing-now", {
+            let music = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID)
+            music.on('playNow', track => {
+                ctx.quote(ctx.locale('commands:play.playing-now', {
                     musicTitle: track.info.title,
                     musicAuthor: track.info.author,
                     musicTime: moment.duration(track.info.length).format('dd:hh:mm:ss')
                 }))
             })
-            music.on("playingEnd", async () => {
-                await this.client.lavalink.manager.leave(message.guild.id)
-                this.client.lavalink.manager.players.delete(message.guild.id)
+            music.on('playEnd', async () => {
+                await ctx.client.lavalink.manager.leave(ctx.message.guildID)
+                ctx.client.lavalink.manager.players.delete(ctx.message.guildID)
             })
-            music.play(args.join(" "));
-            this.client.player.set(message.guild.id, music)
+            music.play(ctx.args.join(' '), ctx.message.author)
+            ctx.client.player.set(ctx.message.guildID, music)
         }
     }
 }
