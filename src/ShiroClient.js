@@ -3,7 +3,7 @@ const { readdir } = require('fs')
 const i18NModule = require('./utils/i18NModule')
 const locale = new i18NModule()
 module.exports = class ShiroClient extends Client {
-    constructor(token, options = {}) {
+    constructor(token, options) {
         super(token, options)
         this.database = new (require('./utils/database/Database'))()
         this.commands = new Collection()

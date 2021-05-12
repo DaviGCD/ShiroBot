@@ -1,4 +1,4 @@
 const Client = require('./src/ShiroClient')
-const { token, options } = require('./config')
-const client = new Client(token, options)
+const { options } = require('./config')
+const client = new Client(process.env.TOKEN, options)
 client.connect()

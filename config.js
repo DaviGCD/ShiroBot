@@ -1,10 +1,5 @@
 require('dotenv').config()
 module.exports = {
-    client: {
-        token: process.env.TOKEN,
-        dbl: process.env.DBL,
-        mongodb: process.env.MONGODB,
-    },
     owner: ['318155799270522880', '456662676035076121', '395788326835322882'],
     options: {
         allowedMentions: {
