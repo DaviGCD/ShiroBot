@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../utils')
 const YouTube = require('simple-youtube-api')
-const youtube = new YouTube('AIzaSyAfEYgTf8XmbPe8mBz9baavfpPG0n5jTnI')
+const youtube = new YouTube('AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8')
 const moment = require('moment')
 require('moment-duration-format')
 
@@ -22,46 +22,47 @@ module.exports = class SearchCommand extends Command {
     try {
       const videos = await youtube.searchVideos(ctx.args.join(' '), 10)
       let number = 1
-      const embed = new EmbedBuilder()
-        .setColor('DEFAULT')
-        .setTitle(ctx.locale('commands:search.title'))
-        .setDescription(videos.map(video => `[**${number++} -** ${video.title} - ${video.channel.title}](${video.url})`).join('\n'))
-        .setFooter(ctx.locale('commands:search.time'))
-      ctx.quote(embed)
-      const response = await ctx.message.channel.awaitMessages(msg => (msg.content > 0 && msg.content < 10) && msg.author.id === ctx.message.author.id, {
-        max: 1,
-        time: 20000,
-        errors: ['time']
-      })
-      if (!response) return ctx.quote(ctx.locale('commands:search.invalid'))
-      const videoIndex = Number(response.first().content)
-      vdo = await youtube.getVideoByID(videos[videoIndex - 1].id)
+      console.log(videos)
+    //   const embed = new EmbedBuilder()
+    //     .setColor('DEFAULT')
+    //     .setTitle(ctx.locale('commands:search.title'))
+    //     .setDescription(videos.map(video => `[**${number++} -** ${video.title} - ${video.channel.title}](${video.url})`).join('\n'))
+    //     .setFooter(ctx.locale('commands:search.time'))
+    //   ctx.quote(embed)
+    //   const response = await ctx.message.channel.awaitMessages(msg => (msg.content > 0 && msg.content < 10) && msg.author.id === ctx.message.author.id, {
+    //     max: 1,
+    //     time: 20000,
+    //     errors: ['time']
+    //   })
+    //   if (!response) return ctx.quote(ctx.locale('commands:search.invalid'))
+    //   const videoIndex = Number(response.first().content)
+    //   vdo = await youtube.getVideoByID(videos[videoIndex - 1].id)
 
-      if (ctx.client.lavalink.manager.players.has(ctx.message.guildID)) {
-        ctx.client.player.get(ctx.message.guildID).play(vdo.url).then(info => {
-          ctx.quote(ctx.locale('commands:play.add-to-queue', {
-            musicTitle: info.title,
-            musicAuthor: info.author,
-            musicTime: moment.duration(info.length).format('dd:hh:mm:ss')
-          }))
-        })
+    //   if (ctx.client.lavalink.manager.players.has(ctx.message.guildID)) {
+    //     ctx.client.player.get(ctx.message.guildID).play(vdo.url).then(info => {
+    //       ctx.quote(ctx.locale('commands:play.add-to-queue', {
+    //         musicTitle: info.title,
+    //         musicAuthor: info.author,
+    //         musicTime: moment.duration(info.length).format('dd:hh:mm:ss')
+    //       }))
+    //     })
 
-      } else {
-        let music = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID.id)
-        music.on('playingNow', track => {
-          ctx.quote(ctx.locale('commands:play.playing-now', {
-            musicTitle: track.info.title,
-            musicAuthor: track.info.author,
-            musicTime: moment.duration(track.info.length).format('dd:hh:mm:ss')
-          }))
-        })
-        music.on('playingEnd', async () => {
-          await ctx.client.lavalink.manager.leave(ctx.message.guildID)
-          ctx.client.lavalink.manager.players.delete(ctx.message.guildID)
-        })
-        music.play(vdo.title);
-        ctx.client.player.set(ctx.message.guildID, music)
-      }
+    //   } else {
+    //     let music = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID.id)
+    //     music.on('playingNow', track => {
+    //       ctx.quote(ctx.locale('commands:play.playing-now', {
+    //         musicTitle: track.info.title,
+    //         musicAuthor: track.info.author,
+    //         musicTime: moment.duration(track.info.length).format('dd:hh:mm:ss')
+    //       }))
+    //     })
+    //     music.on('playingEnd', async () => {
+    //       await ctx.client.lavalink.manager.leave(ctx.message.guildID)
+    //       ctx.client.lavalink.manager.players.delete(ctx.message.guildID)
+    //     })
+    //     music.play(vdo.title);
+    //     ctx.client.player.set(ctx.message.guildID, music)
+    //   }
     } catch (error) {
       console.error(error)
       ctx.quote(ctx.locale('commands:search.no-results'))

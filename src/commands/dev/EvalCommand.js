@@ -13,25 +13,18 @@ module.exports = class EvalCommand extends Command {
 
   async run(ctx) {
     try {
-      let util = require('util')
-      let code = ctx.args.join(' ')
-      let ev = eval(code)
-      let str = util.inspect(ev, {
-        depth: 1
-      })
+      const util = require('util')
+      const code = ctx.args.join(' ')
+      const ev = eval(code)
+      let str = util.inspect(ev, { depth: 1 })
 
-      str = str.replace(new RegExp(ctx.client.token, 'g'), undefined)
-      if (str.length > 1800) {
-        str = str.substr(0, 1800)
-        str = `${str}...`
-      }
-      ctx.quote(`\`\`\`js\n${str}\`\`\``)
+      str = str.replace(new RegExp(`${ctx.client.token}`, 'g'), undefined)
+      if (str.length > 1800) str = str.substr(0, 1800)
+
+      ctx.quote(`\`\`\`js\n${str}\`\`\`\n\n\`\`\`js\n${typeof str}\`\`\``)
     } catch (err) {
-      if (err.stack.length > 1800) {
-        err.stack = err.stack.substr(0, 1800)
-        err.stack = `${err.stack}...`
-      }
-      ctx.quote(`\`\`\`${err.stack}\`\`\``)
+
+      ctx.quote(`\`\`\`${err.message}\`\`\`\n\n\`\`\`js\n${typeof str}\`\`\``)
     }
   }
 }
