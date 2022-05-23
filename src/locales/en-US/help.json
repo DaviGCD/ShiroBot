@@ -16,7 +16,7 @@
   "stats": "Shows my statistics.",
   "nowplaying": "Shows the music that is actually playing.",
   "playlist": "Shows the actually queue.",
-  "language": "Changes my language in your server.",
+  "language": "[language-code] Changes my language in your server.",
   "shuffle": "Shuffles the musics that is on the queue.",
   "remove": "Removes a music from the queue."
 }

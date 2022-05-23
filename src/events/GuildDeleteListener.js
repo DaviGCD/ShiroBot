@@ -5,12 +5,6 @@ module.exports = class GuildDeleteListener extends EventListener {
   }
 
   async run(client, guild) {
-
-    let server = await client.database.Guilds.findById(guild.id)
-    if (server) {
-      server.delete()
-
-      // console.info(`[INFO] | [GUILD REMOVE] - GUILD: ${guild.name} (${guild.id}) - OWNER: ${guild.owner.user.tag} (${guild.owner.user.id}) - TOTAL MEMBERS: ${guild.memberCount} members`)
-    }
+    client.database.guilds.getAndDelete(guild.id)
   }
 }

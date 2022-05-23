@@ -1,6 +1,6 @@
 require('dotenv').config()
 module.exports = {
-  owner: ['318155799270522880', '456662676035076121', '395788326835322882'],
+  owner: process.env.OWNERS,
   options: {
     allowedMentions: {
       everyone: false,
@@ -10,7 +10,7 @@ module.exports = {
     },
     defaultImageFormat: 'png',
     defaultImageSize: 2048,
-    maxShards: 2,
+    maxShards: process.env.TOTAL_SHARDS,
     restMode: true,
     intents: 14073
   }

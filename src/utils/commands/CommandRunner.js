@@ -9,8 +9,7 @@ module.exports = class CommandRunner {
     const user = await client.database.users.getOrCreate(message.author.id)
     const guild = await client.database.guilds.getOrCreate(message.guildID)
     const locale = i18NModule.getLocale(guild.lang)
-    const clientGuild = await client.getRESTGuildMember(message.guildID, client.user.id)
-    if (message.content === clientGuild.mention) {
+    if (message.content.replace('!', '') === `<@${client.user.id}>`) {
       const embed = new EmbedBuilder()
       embed.setColor('DEFAULT')
       embed.setDescription(locale('basic:mention', { 0: guild.prefix }))
