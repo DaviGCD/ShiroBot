@@ -14,12 +14,16 @@ module.exports = class InviteCommand extends Command {
   run(ctx) {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
-    embed.addField(ctx.locale('commands:invite.title'), ctx.locale('commands:invite.description', { invite: `https://discord.com/api/oauth2/authorize?client_id=${ctx.client.user.id}&permissions=37047552&scope=bot` }))
+    embed.addField(ctx.locale('commands:invite.title'), ctx.locale('commands:invite.description', { invite: this.generateInvite(ctx.client, 3694521470) }))
 
     ctx.message.author.getDMChannel().then(channel => channel.createMessage(embed.build()).then(() => {
       ctx.quote(ctx.locale('commands:dm.send-dm'))
     }).catch(() => {
       ctx.quote(ctx.locale('commands:dm.dm-closed'))
     }))
+  }
+
+  generateInvite(client, permissions) {
+    return `https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot%20applications.commands&permissions=${permissions}`
   }
 }

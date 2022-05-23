@@ -12,7 +12,7 @@ module.exports = class HelpCommand extends Command {
     const music = ctx.client.commands.filter(cmd => cmd.config.category === 'music').map(cmd => `**${ctx.db.guild.prefix}${cmd.config.name}** » ${ctx.locale(`help:${cmd.config.name}`)}`).join('\n')
     const misc = ctx.client.commands.filter(cmd => cmd.config.category === 'misc').map(cmd => `**${ctx.db.guild.prefix}${cmd.config.name}** » ${ctx.locale(`help:${cmd.config.name}`)}`).join('\n')
     const settings = ctx.client.commands.filter(cmd => cmd.config.category === 'settings').map(cmd => `**${ctx.db.guild.prefix}${cmd.config.name}** » ${ctx.locale(`help:${cmd.config.name}`)}`).join('\n')
-    const i = await this.generateInvite(ctx.client, 37047552)
+    const i = this.generateInvite(ctx.client, 3694521470)
     const links = `[${ctx.locale('commands:invite.title')}](${i}) - [${ctx.locale('commands:support-server')}](https://discord.gg/c8EWvFK)\n[Discord Bot List](https://discordbots.org/bot/481289027753082890/vote)`
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
@@ -32,7 +32,7 @@ module.exports = class HelpCommand extends Command {
     }
   }
 
-  async generateInvite(client, permissions) {
-    return await `https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=${permissions}&scope=bot`
+  generateInvite(client, permissions) {
+    return `https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot%20applications.commands&permissions=${permissions}`
   }
 }
