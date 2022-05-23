@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 
 module.exports = class Database {
   constructor() {
-    mongoose.connect(process.env.MONGODB, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+    mongoose.connect(process.env.MONGODB, { useUnifiedTopology: true }, (err) => {
       if (err) return console.error(`Unable to connect to database ${err}`)
       console.log('Connected to database')
     })
