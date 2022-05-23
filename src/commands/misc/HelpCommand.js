@@ -9,12 +9,11 @@ module.exports = class HelpCommand extends Command {
   }
 
   async run(ctx) {
-
     const music = ctx.client.commands.filter(cmd => cmd.config.category === 'music').map(cmd => `**${ctx.db.guild.prefix}${cmd.config.name}** » ${ctx.locale(`help:${cmd.config.name}`)}`).join('\n')
     const misc = ctx.client.commands.filter(cmd => cmd.config.category === 'misc').map(cmd => `**${ctx.db.guild.prefix}${cmd.config.name}** » ${ctx.locale(`help:${cmd.config.name}`)}`).join('\n')
     const settings = ctx.client.commands.filter(cmd => cmd.config.category === 'settings').map(cmd => `**${ctx.db.guild.prefix}${cmd.config.name}** » ${ctx.locale(`help:${cmd.config.name}`)}`).join('\n')
     const i = await this.generateInvite(ctx.client, 37047552)
-    const links = `[${ctx.locale('commands:invite.title')}](${i}) - [${ctx.locale('commands:support-server')}](https://discord.gg/c8EWvFK)\n[Discord Bot List](https://discordbots.org/bot/481289027753082890/vote) - [Bots Para Discord](https://botsparadiscord.xyz/bots/481289027753082890/votar)`
+    const links = `[${ctx.locale('commands:invite.title')}](${i}) - [${ctx.locale('commands:support-server')}](https://discord.gg/c8EWvFK)\n[Discord Bot List](https://discordbots.org/bot/481289027753082890/vote)`
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setFooter(ctx.locale('commands:help.total-command', { cmd: ctx.client.commands.size }))
