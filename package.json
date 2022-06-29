@@ -1,7 +1,7 @@
 {
-  "name": "shiro-rewrite",
+  "name": "shiro",
   "version": "3.2.2",
-  "description": "A NGNL discord bot music make in eris and use lavalink player.",
+  "description": "A No Game No Life discord bot that is made in JavaScript that's using eris.",
   "main": "index.js",
   "engines": {
     "node": ">=14.0.0"
@@ -14,10 +14,8 @@
     "url": "git+https://github.com/DaviGCD/ShiroBot.git"
   },
   "keywords": [
-    "lavalink",
     "discord-bot",
-    "eris",
-    "lavacord"
+    "eris"
   ],
   "author": "DaviGC_",
   "license": "ISC",
