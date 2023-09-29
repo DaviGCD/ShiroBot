@@ -1,13 +1,12 @@
 const { Manager } = require('@lavacord/eris')
 const LavalinkPlayer = require('./LavalinkPlayer')
-const { Logger } = require('../utils')
 
 // fallback for test env
 let connect
 try {
   connect = require('./LavalinkConfig')
 } catch (e) {
-  Logger.info('Couldn\'t find LavalinkConfig.json. Music support will be unavaliable.')
+  console.log('Couldn\'t find LavalinkConfig.json. Music support will be unavaliable.')
   connect = []
 }
 
