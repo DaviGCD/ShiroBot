@@ -5,10 +5,13 @@ const mongoose = require('mongoose')
 
 module.exports = class Database {
   constructor() {
-    mongoose.connect(process.env.MONGODB, { useUnifiedTopology: true }, (err) => {
-      if (err) return console.error(`Unable to connect to database ${err}`)
-      console.log('Connected to database')
-    })
+    try {
+      mongoose.connect(process.env.MONGODB)
+    } catch(error) {
+      console.log('Couldn\'t connect to the database.', error.message)
+    } finally {
+      console.log('Successfully connected to the database.')
+    }
 
     this.guilds = new Collection(guild)
     this.users = new Collection(user)

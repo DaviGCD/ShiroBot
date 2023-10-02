@@ -2,11 +2,11 @@ const { Manager } = require('@lavacord/eris')
 const LavalinkPlayer = require('./LavalinkPlayer')
 
 // fallback for test env
-let connect
+
 try {
   connect = require('./LavalinkConfig')
 } catch (e) {
-  console.log('Couldn\'t find LavalinkConfig.json. Music support will be unavaliable.')
+  console.log('Couldn\'t find LavalinkConfig.js. Music support will be unavaliable.')
   connect = []
 }
 
@@ -26,9 +26,10 @@ module.exports = class LavalinkManager {
   async connect () {
     try {
       await this.manager.connect()
-      console.log('Lavalink nodes has been sucessfully connected.')
     } catch (err) {
       console.log('Lavalink nodes aren\'t connected.', err.message)
+    } finally {
+      console.log('Lavalink nodes has been sucessfully connected.')
     }
   }
 

@@ -1,4 +1,4 @@
-function manuItems(it, pg, limit) {
+function menuItems(it, pg, limit) {
   let items = it,
   page = pg,
   per_page = limit,

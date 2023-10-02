@@ -1,0 +1,7 @@
+// everything here should follow the settings applied in "application.yml"
+module.exports =[{
+  id: 'LAVALINK_ID',
+  host: 'LAVALINK_IP',
+  port: 'LAVALINK_PORT',
+  password: 'LAVALINK_PASSWORD'
+}]

@@ -30,7 +30,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
   }
 
   play(query) {
-    return this.getSongs(this.player.node, `ytsearch:${query}`).then(result => {
+    return this.getSongs(this.player.node, `scsearch:${query}`).then(result => {
       if (!result[0]) return
       this._addToQueue(result[0])
       return result[0].info
