@@ -6,7 +6,7 @@ Shiro is a multipurpose bot made to entertain you, she is simple to use and much
 ## Things that are planned to be made:
 
 - [x] Music system
-- [ ] Slash commands
+- [x] Slash commands
 - [ ] Optimized structure/source code
 - [ ] Moderation system
 - [ ] Leveling up system
