@@ -9,7 +9,7 @@ module.exports = {
       repliedUser: true
     },
     defaultImageFormat: 'png',
-    defaultImageSize: 2048,
+    defaultImageSize: 1024,
     maxShards: process.env.TOTAL_SHARDS,
     restMode: true,
     intents: 14073

@@ -7,7 +7,8 @@ module.exports = class InviteCommand extends Command {
       category: 'misc',
       UserPermission: null,
       ClientPermission: null,
-      OnlyDevs: false
+      OnlyDevs: false,
+      slash: { name: 'invite', description: 'Send my invite in your private.' }
     })
   }
 
@@ -16,7 +17,7 @@ module.exports = class InviteCommand extends Command {
     embed.setColor('DEFAULT')
     embed.addField(ctx.locale('commands:invite.title'), ctx.locale('commands:invite.description', { invite: this.generateInvite(ctx.client, 3694521470) }))
 
-    ctx.message.author.getDMChannel().then(channel => channel.createMessage(embed.build()).then(() => {
+    ctx.message.member.user.getDMChannel().then(channel => channel.createMessage(embed.build()).then(() => {
       ctx.quote(ctx.locale('commands:dm.send-dm'))
     }).catch(() => {
       ctx.quote(ctx.locale('commands:dm.dm-closed'))

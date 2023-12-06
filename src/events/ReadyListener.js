@@ -10,9 +10,14 @@ module.exports = class ReadyListener extends EventListener {
     setInterval(() => {
       client.editStatus('online', { name: `@${client.user.username} | ${client.guilds.size} guilds` })
     }, 15000)
-    
-    const lavalink = new LavalinkManager(client)
-    client.lavalink = lavalink
-    await lavalink.connect()
+
+    client.lavalink = new LavalinkManager(client)
+    await client.lavalink.connect()
+    const commands = []
+    client.commands.forEach(command => {
+    	if (!command.config?.slash) return
+    	commands.push(command.config.slash)
+	})
+	client.bulkEditCommands(commands)
   }
 }

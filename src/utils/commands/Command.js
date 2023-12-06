@@ -6,7 +6,10 @@ module.exports = class Command {
       category: options.category || 'music',
       UserPermission: options.UserPermission || [],
       ClientPermission: options.ClientPermission || [],
-      OnlyDevs: options.OnlyDevs || false
+      OnlyDevs: options.OnlyDevs || false,
+      slash: options?.slash ? Object.assign(options.slash, {
+        dm_permission: false
+      }) : null
     }
   }
 

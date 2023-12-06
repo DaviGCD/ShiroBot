@@ -4,13 +4,18 @@ module.exports = class PingCommand extends Command {
     super({
       name: 'ping',
       aliases: ['pang', 'peng', 'ping', 'pong', 'pung'],
-      category: 'misc'
+      category: 'misc',
+      slash: {
+      	name: 'ping',
+	      description: 'Shows my current ping',
+	      options: [{type: 5, name: 'shards', description: 'See how many shards I have', required: false}]
+      }
     })
   }
 
   run(ctx) {
-
-    switch (ctx.args[0]) {
+    const args = ctx.args !== undefined ? ctx.args[0]?.name ?? ctx.args[0] : null
+    switch (args) {
       case 'shards':
         const shards = ctx.client.shards
         const s = []

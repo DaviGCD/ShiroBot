@@ -8,16 +8,27 @@ module.exports = class CommandContext {
   }
 
   async quote(content, options, file) {
-    if (typeof content === 'object') {
-      return await this.message.channel.createMessage(Object.assign(content, { messageReferenceID: this.message.id }, options), file)
+    if (!this.message.data) {
+      if (typeof content === 'object') {
+        return await this.message.channel.createMessage(Object.assign(content, options), file)
+      }
+      
+      return await this.message.channel.createMessage(Object.assign({ content: content }, options), file)
+    } else {
+      if (typeof content === 'object') {
+        return await this.message.createMessage(Object.assign(content, options), file)
+      }
+      
+      return await this.message.createMessage(Object.assign({ content: content }, options), file)
     }
-
-    return await this.message.channel.createMessage(Object.assign({ content: content }, { messageReferenceID: this.message.id }, options), file)
   }
 
   async quoteT(content, data, options = {}) {
-
-    return await this.message.channel.createMessage(Object.assign({ content: this.locale(content, data) }, { messageReferenceID: this.message.id }, options))
+    if (!this.message.data) {
+      return await this.message.channel.createMessage(Object.assign({ content: this.locale(content, data) },  options))
+    } else {
+      return await this.message.createMessage(Object.assign({ content: this.locale(content, data) },  options))
+    }
   }
 
   async getUser(args) {
@@ -29,6 +40,16 @@ module.exports = class CommandContext {
       if (!member) return false
 
       return member.user
+    }
+  }
+  
+  getArgs(type) {
+    if (!this.args) return this.args = []
+    if (this.args[0]?.name) {
+      const args = this.args.find(it => it.name === type)
+      return args
+    } else {
+      return null
     }
   }
 }

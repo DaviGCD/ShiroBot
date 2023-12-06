@@ -4,7 +4,8 @@ module.exports = class HelpCommand extends Command {
     super({
       name: 'help',
       aliases: ['ajuda', 'comandos', 'commands'],
-      category: 'misc'
+      category: 'misc',
+      slash: { name: 'help', description: 'Send this list here in your private.' }
     })
   }
 
@@ -24,7 +25,7 @@ module.exports = class HelpCommand extends Command {
     embed.addField(ctx.locale('commands:help.another-links'), `**${links}**`)
 
     try {
-      const channel = await ctx.message.author.getDMChannel()
+      const channel = await ctx.message.member.user.getDMChannel()
       await channel.createMessage(embed.build())
       ctx.quote(ctx.locale('commands:dm.send-dm'))
     } catch {
