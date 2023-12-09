@@ -3,3 +3,4 @@ LavalinkConfig.js
 package-lock.json
 .env
 .idea
+yarn-error.log
