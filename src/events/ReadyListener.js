@@ -1,4 +1,4 @@
-const { EventListener } = require('../utils')
+const { Constants, EventListener } = require('../utils')
 const LavalinkManager = require('../lavalink/LavalinkManager')
 module.exports = class ReadyListener extends EventListener {
   constructor() {

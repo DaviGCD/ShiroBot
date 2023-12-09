@@ -9,6 +9,7 @@
     "user-another-channel": "You need to go to `{{channel}}`, cuz I'm at `{{channel}}` right now.",
     "queue-null": "At this time, the queue on this server is empty.",
     "playing-null": "At this time, I'm not playing any music.",
+    "disabled": "Alright! The DJ module is now disabled.",
     "dj": {
       "args-null": "The DJ permission is designed to not allow people to abuse the music commands, so to get the DJ permission, you need to set a role using `{{prefix}}dj <@​role or role id>` if you already have setted the role, you have to give the role to the members that you want to give the DJ permission, and you're done!\n\nWell... Now that you've figured out how to earn that permission, good luck and have fun with my music controls and see you soon!",
       "success": "DJ role successfully changed."

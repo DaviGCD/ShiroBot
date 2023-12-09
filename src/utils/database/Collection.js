@@ -4,7 +4,7 @@ module.exports = class Collection {
   }
 
   findOneByID(id) {
-    return this.findOne({ _id: id })
+    return this.findOne({ id })
   }
 
   findOne(...args) {
@@ -14,7 +14,7 @@ module.exports = class Collection {
   async getOrCreate(id, defaultValues) {
     const data = await this.findOneByID(id)
     if (!data) {
-      return this.model({ _id: id, ...defaultValues })
+      return this.model({ id, ...defaultValues })
     }
 
     return data
@@ -24,6 +24,6 @@ module.exports = class Collection {
     const data = await this.findOneByID(id)
     if (!data) return undefined
 
-    return this.model.findByIdAndDelete(id)
+    return this.model.findOneAndDelete({ id })
   }
 }

@@ -8,6 +8,7 @@ module.exports = class CommandRunner {
     if (message.channel.type !== 0) return
     const user = await client.database.users.getOrCreate(message.author.id)
     const guild = await client.database.guilds.getOrCreate(message.guildID)
+    const premiumkey = await client.database.premiumkeys.getOrCreate(message.author.id)
     const locale = i18NModule.getLocale(guild.lang)
     if (message.content.replace('!', '') === `<@${client.user.id}>`) {
       const embed = new EmbedBuilder()
@@ -23,7 +24,7 @@ module.exports = class CommandRunner {
     const cmd = client.commands.get(cmds) || client.commands.get(client.aliases.get(cmds))
     if (!cmd) return
     cmd.setLocale(locale)
-    const ctx = new CommandContext(client, message, args, { user, guild }, locale)
+    const ctx = new CommandContext(client, message, args, { user, guild, premiumkey }, locale)
     if (cmd.config.OnlyDevs) {
       if (!client.config.owner.includes(message.author.id)) return
     }
@@ -52,12 +53,13 @@ module.exports = class CommandRunner {
 	static async runSlash(client, interaction) {
 		const user = await client.database.users.getOrCreate(interaction.member.id)
 		const guild = await client.database.guilds.getOrCreate(interaction.guildID)
+		const premiumkey = await client.database.premiumkeys.getOrCreate(interaction.member.id)
 		const locale = i18NModule.getLocale(guild.lang)
 		const cmds = interaction.data.name
 		const cmd = client.commands.get(cmds)
 		cmd.setLocale(locale)
 		try{
-			const ctx = new CommandContext(client, interaction, interaction.data?.options, { user, guild }, locale)
+			const ctx = new CommandContext(client, interaction, interaction.data?.options, { user, guild, premiumkey }, locale)
 			if (cmd.config.OnlyDevs) {
 			  if (!client.config.owner.includes(message.author.id)) return
 			}
