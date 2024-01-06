@@ -30,13 +30,13 @@ module.exports = class GenerateKeyCommand extends Command {
 
     key_data.keys.push(key)
     key_data.save()
-    user.premium = {
+    user.premium.set({
       plan: key.plan,
       donated_at: key.created_at,
       expire_in: key.expire_in,
       total_donated: Number(ctx.db.user.premium.total_donated) + Number(key.value),
       keys: ctx.db.premiumkey.keys
-    }
+    })
     
     user.save()
     ctx.quote(`Key ${key.id} owned by <@${owner_id}> with the selected plan \`${key.plan}\` was successfully created!`)

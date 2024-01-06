@@ -1,5 +1,5 @@
 const { EventEmitter } = require('events')
-const { Logger } = require('../utils')
+
 module.exports = class LavalinkPlayer extends EventEmitter {
   constructor(player) {
     super()
@@ -24,7 +24,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
 
       return res.data.tracks
     } catch (err) {
-      Logger.error(err.message)
+      console.error(err.message)
       return null
     }
   }

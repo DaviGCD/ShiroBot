@@ -28,7 +28,7 @@ module.exports = class LavalinkManager {
       await this.manager.connect()
       console.log('Lavalink nodes has been sucessfully connected.')
     } catch (err) {
-      console.log('it wasn\'t possible to connect to Lavalink.', err.message)
+      console.log('It wasn\'t possible to connect to Lavalink.', err.message)
     }
   }
 

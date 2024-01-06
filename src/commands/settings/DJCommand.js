@@ -28,21 +28,15 @@ module.exports = class DJCommand extends Command {
         embed.setDescription(ctx.locale('commands:dj-module.dj.args-null', { prefix: ctx.db.guild.prefix }))
         return ctx.quote(embed.build())
       }
-      ctx.db.guild.dj_module = {
-        role: '',
-        channel: ctx.db.guild.dj_module.channel,
-        auto_play: ctx.db.guild.dj_module.auto_play
-      }
+
+      ctx.db.guild.set({ 'dj_module.role': '' })
       ctx.db.guild.save().then(() => {
         ctx.quoteT('commands:dj-module.disabled')
       })
       return
     }
-    ctx.db.guild.dj_module = {
-      role: String(role),
-      channel: ctx.db.guild.dj_module.channel,
-      auto_play: ctx.db.guild.dj_module.auto_play
-    }
+
+    ctx.db.guild.set({ 'dj_module.role': String(role) })
     ctx.db.guild.save().then((it) => {
       ctx.quote(ctx.locale('commands:dj-module.dj.success'))
     })

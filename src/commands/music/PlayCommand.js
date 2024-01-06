@@ -22,7 +22,7 @@ module.exports = class PlayCommand extends Command {
     if (ctx.client.lavalink.manager.players.has(ctx.message.guildID)) {
       ctx.client.player.get(ctx.message.guildID).play(ctx.args.join(' '), ctx.message.author).then(info => {
         ctx.quote(ctx.locale('commands:play.add-to-queue', {
-          musicTitle: info.title,
+          musicTitle: info?.title ?? '[PRIVATE]',
           musicAuthor: info.author,
           musicTime: moment.duration(info.length).format('dd:hh:mm:ss')
         }))

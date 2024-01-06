@@ -1,15 +1,18 @@
 function menuItems(it, pg, limit) {
   let items = it,
-  page = pg,
+  page = pg - 1,
   per_page = limit,
-  offset = (page - 1) * per_page,
+  offset = (page) * per_page,
   data = items.slice(offset).slice(0, per_page),
   total_pages = Math.ceil(items.length /per_page)
 
   return {
-    page,
+    page: page + 1,
     total_pages,
-    data
+    data: data.map((obj, index) => {
+      const id = page * limit + index + 1
+      return Object.assign({ id }, { item: obj })
+    })
   }
 }
 
