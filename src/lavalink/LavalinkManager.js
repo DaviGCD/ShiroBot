@@ -11,7 +11,7 @@ try {
 }
 
 module.exports = class LavalinkManager {
-  constructor (client) {
+  constructor(client) {
     this.client = client
     this.manager = new Manager(this.client, connect, {
       user: this.client.user.id,
@@ -19,11 +19,11 @@ module.exports = class LavalinkManager {
     })
   }
 
-  getBestHost () {
+  getBestHost() {
     return connect[Math.floor(Math.random() * connect.length)].id
   }
 
-  async connect () {
+  async connect() {
     try {
       await this.manager.connect()
       console.log('Lavalink nodes has been sucessfully connected.')
@@ -32,7 +32,7 @@ module.exports = class LavalinkManager {
     }
   }
 
-  async join (channel) {
+  async join(channel) {
     const manager = await this.manager.join({ channel, guild: this.client.getChannel(channel).guild.id, node: this.getBestHost() }, { selfdeaf: true })
     return new LavalinkPlayer(manager)
   }

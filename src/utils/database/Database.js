@@ -8,7 +8,7 @@ module.exports = class Database {
   constructor() {
     try {
       mongoose.connect(process.env["MONGODB"])
-    } catch(error) {
+    } catch (error) {
       console.log('Couldn\'t connect to the database.', error.message)
     } finally {
       console.log('Successfully connected to the database.')

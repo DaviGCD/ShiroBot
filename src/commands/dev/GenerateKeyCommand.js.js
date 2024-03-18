@@ -15,9 +15,9 @@ module.exports = class GenerateKeyCommand extends Command {
     const guild_id = ctx.args[0]
     const plan = ctx.args[1]
     const owner_id = ctx.args[2]
-     if (!guild_id) return ctx.quote('You haven\'t typed the ID of the guild!')
-     if (!plan) return ctx.quote('You have to inform what plan you want to set!')
-     if (!owner_id) return ctx.quote('You haven\'t typed the ID of the user!')
+    if (!guild_id) return ctx.quote('You haven\'t typed the ID of the guild!')
+    if (!plan) return ctx.quote('You have to inform what plan you want to set!')
+    if (!owner_id) return ctx.quote('You haven\'t typed the ID of the user!')
     const key_data = await ctx.client.database.premiumkeys.getOrCreate(owner_id)
     const user = await ctx.client.database.users.getOrCreate(owner_id)
     const key = Constants.generateKeyPremium({
@@ -37,7 +37,7 @@ module.exports = class GenerateKeyCommand extends Command {
       total_donated: Number(ctx.db.user.premium.total_donated) + Number(key.value),
       keys: ctx.db.premiumkey.keys
     })
-    
+
     user.save()
     ctx.quote(`Key ${key.id} owned by <@${owner_id}> with the selected plan \`${key.plan}\` was successfully created!`)
   }

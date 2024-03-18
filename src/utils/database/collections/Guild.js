@@ -10,7 +10,7 @@ const Guild = new mongoose.Schema({
   },
   lang: {
     type: String,
-    default: 'en-US' 
+    default: 'en-US'
   },
   dj_module: {
     type: Object,

@@ -23,7 +23,7 @@ module.exports = class DJCommand extends Command {
     const role = ctx.getArgs('role') ? ctx.getArgs('role')?.value : ctx.args[0]?.replace(/[<@&>]/g, '')
     if (!role) {
       if (!ctx.db.guild.dj_module.role) {
-         const embed = new EmbedBuilder()
+        const embed = new EmbedBuilder()
         embed.setColor('DEFAULT')
         embed.setDescription(ctx.locale('commands:dj-module.dj.args-null', { prefix: ctx.db.guild.prefix }))
         return ctx.quote(embed.build())

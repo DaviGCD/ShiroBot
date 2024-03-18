@@ -48,7 +48,7 @@ module.exports = class LanguageCommand extends Command {
           ctx.quote('Alright, for now I will speak in `English`.')
         })
       }
-      break;
+        break;
       default: {
         ctx.quote(`\`\`\`asciidoc\n${ascii}\`\`\``)
       }

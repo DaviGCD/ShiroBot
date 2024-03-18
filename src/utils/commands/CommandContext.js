@@ -12,22 +12,22 @@ module.exports = class CommandContext {
       if (typeof content === 'object') {
         return await this.message.channel.createMessage(Object.assign(content, options), file)
       }
-      
+
       return await this.message.channel.createMessage(Object.assign({ content: content }, options), file)
     } else {
       if (typeof content === 'object') {
         return await this.message.createMessage(Object.assign(content, options), file)
       }
-      
+
       return await this.message.createMessage(Object.assign({ content: content }, options), file)
     }
   }
 
   async quoteT(content, data, options = {}) {
     if (!this.message.data) {
-      return await this.message.channel.createMessage(Object.assign({ content: this.locale(content, data) },  options))
+      return await this.message.channel.createMessage(Object.assign({ content: this.locale(content, data) }, options))
     } else {
-      return await this.message.createMessage(Object.assign({ content: this.locale(content, data) },  options))
+      return await this.message.createMessage(Object.assign({ content: this.locale(content, data) }, options))
     }
   }
 
@@ -42,7 +42,7 @@ module.exports = class CommandContext {
       return member.user
     }
   }
-  
+
   getArgs(type) {
     if (!this.args) return this.args = []
     if (this.args[0]?.name) {

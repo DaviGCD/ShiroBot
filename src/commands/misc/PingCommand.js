@@ -6,9 +6,9 @@ module.exports = class PingCommand extends Command {
       aliases: ['pang', 'peng', 'ping', 'pong', 'pung'],
       category: 'misc',
       slash: {
-      	name: 'ping',
-	      description: 'Shows my current ping',
-	      options: [{type: 5, name: 'shards', description: 'See how many shards I have', required: false}]
+        name: 'ping',
+        description: 'Shows my current ping',
+        options: [{ type: 5, name: 'shards', description: 'See how many shards I have', required: false }]
       }
     })
   }
