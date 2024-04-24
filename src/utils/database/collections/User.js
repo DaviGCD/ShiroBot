@@ -9,6 +9,8 @@ const User = new mongoose.Schema({
     type: Object,
     default: {
       banned: false,
+      banned_by: '',
+      date: '',
       reason: ''
     }
   },
