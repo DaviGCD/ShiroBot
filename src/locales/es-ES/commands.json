@@ -1,0 +1,112 @@
+{
+  "blacklist": {
+    "banned": "User successfully banned!",
+    "unbanned": "User successfully unbanned",
+    "member-args-null": "You must have to enter the user ID."
+  },
+  "dj-module": {
+    "user-channel-null": "You are not in any voice channel.",
+    "user-another-channel": "You need to go to `{{channel}}`, cuz I'm at `{{channel}}` right now.",
+    "queue-null": "At this time, the queue on this server is empty.",
+    "playing-null": "At this time, I'm not playing any music.",
+    "disabled": "Alright! The DJ module is now disabled.",
+    "dj": {
+      "args-null": "The DJ permission is designed to not allow people to abuse the music commands, so to get the DJ permission, you need to set a role using `{{prefix}}dj <@​role or role id>` if you already have setted the role, you have to give the role to the members that you want to give the DJ permission, and you're done!\n\nWell... Now that you've figured out how to earn that permission, good luck and have fun with my music controls and see you soon!",
+      "success": "DJ role successfully changed."
+    }
+  },
+  "play": {
+    "args-null": "You need enter a name or URL of the music.",
+    "playing-now": "Now playing `{{musicTitle}}` uploaded by `{{musicAuthor}}` duration: `{{musicTime}}`.",
+    "add-to-queue": "`{{musicTitle}}` by `{{musicAuthor}}` duration: `{{musicTime}}` has be added to the queue."
+  },
+  "prefix": {
+    "args-null": "You haven't entered a prefix that you want to set.",
+    "success": "Prefix successfully changed."
+  },
+  "seek": {
+    "seeked": "Music position has be successfully changed.",
+    "args-null": "You need enter the time to be change.",
+    "correct-use": "Correct use to the command: `{{prefix}}seek 160`."
+  },
+  "skip": "The music was successfully skipped.",
+  "stop": "The music was stopped and the queue was cleared, I'm leaveing of `{{channel}}`.",
+  "volume": {
+    "max-and-min": "The maximum volume is `0/100`.",
+    "changed": "My volume has be changed for `{{volume}}/100`.",
+    "current": "My current volume is `{{volume}}/100`."
+  },
+  "help": {
+    "music": "**Music**",
+    "misc": "**Miscellaneous**",
+    "settings": "**Settings**",
+    "another-links": "Another links",
+    "total-command": "I have a total {{cmd}} commands."
+  },
+  "dm": {
+    "send-dm": "I've sent in your private, take a look there.",
+    "dm-closed": "Your private is closed, I can't send the help in your private."
+  },
+  "invite": {
+    "title": "My invite",
+    "description": "Apparently you liked you, right? Well... If you want to add me to your discord server, just click [here]({{invite}}) and have a good time.\n\nIf you need help, support or have any questions, get in my support server by clicking [here](https://discord.gg/c8EWvFK), thanks for choosing me."
+  },
+  "loop": {
+    "enable": "The repeat mode has be successfully enable for the music `{{music}}`.",
+    "disable": "The repeat mode has be successfully disable for the music `{{music}}`."
+  },
+  "resume": {
+    "paused": "The music is not paused.",
+    "resumed": "Music successfully resumed."
+  },
+  "pause": {
+    "paused": "Music successfully paused.",
+    "resumed": "The music is already paused."
+  },
+  "changeavatar": {
+    "args-null": "You need to enter an URL of th new avatar.",
+    "success": "Avatar successfully changed."
+  },
+  "stats": {
+    "memory": "Memory",
+    "uptime": "Uptime",
+    "servers": "Guilds",
+    "channels": "Channels",
+    "node-version": "Node.js",
+    "discord-version": "discord.js",
+    "lavalink": "discord.js-lavalink",
+    "shards": "Shards",
+    "users": "Users"
+  },
+  "np": {
+    "now-playing": "Now playing",
+    "title": "Title",
+    "channel": "Channel",
+    "requestedBy": "Requested by",
+    "duration": "Duration",
+    "link": "Link",
+    "loop": "Repeat mode"
+  },
+  "true": "Enable",
+  "false": "Disable",
+  "click-here": "click here",
+  "queue": {
+    "pages": "Page {{page}} for {{pages}}",
+    "title": "Musics that are in the queue"
+  },
+  "shuffle": "Queue successfully shuffled.",
+  "remove": {
+    "args-null": "Enter a valid number.",
+    "not-number": "You entered an invalid number.",
+    "max-and-minimum": "You can only remove between 1 and {{max}}.",
+    "removed": "Music successfully removed."
+  },
+  "search": {
+    "args-null": "Enter the name of the desired music.",
+    "title": "Search result.",
+    "no-results": "Time out.",
+    "invalid": "You entered an invalid value.",
+    "time": "You have 20 secounds to choose."
+  },
+  "support-server": "Support server"
+}
