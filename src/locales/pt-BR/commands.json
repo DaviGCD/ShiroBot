@@ -9,6 +9,7 @@
     "user-another-channel": "Você precisa estar no `{{channel}}` pois é lá que eu me encontro.",
     "queue-null": "No momento a fila, deste servidor está vazia.",
     "playing-null": "No momento não estou tocando nenhuma música.",
+    "disabled": "Alright! The DJ module is now disabled.",
     "dj": {
       "args-null": "A permissão de DJ foi criada para não permitir pessoas de abusarem dos comandos de música, para adquirir a permissão de DJ, é necessário configurar usando `{{prefix}}dj <@cargo ou o ID do cargo>`, caso já possua isto configurado, basta dar o cargo para os membros que você quer que tenha a permissão de DJ, e pronto!\n\nBom... Agora que você descobriu como ganhar essa permissão, boa sorte e divertimento com os meus comandos de música e até logo!",
       "success": "Cargo de DJ alterado com sucesso."
@@ -81,10 +82,7 @@
     "now-playing": "Tocando agora",
     "title": "Titulo",
     "channel": "Canal",
-    "views": "Visualizações",
-    "like": "Gostei",
-    "dislike": "Não gostei",
-    "comments": "Comentários",
+    "requestedBy": "Requested by",
     "duration": "Duração",
     "link": "Link",
     "loop": "Modo repetir"

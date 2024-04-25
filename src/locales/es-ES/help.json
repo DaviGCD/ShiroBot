@@ -1,0 +1,22 @@
+{
+  "play": "Makes me join in a voice channel and play a music.",
+  "seek": "Changes the position of the current music (Just secounds is supported. Example: ;seek 120).",
+  "skip": "Skips the current music for the next music in the queue.",
+  "stop": "Stops the music and clear the queue",
+  "volume": "Changes the volume of the music.",
+  "help": "Sends this list here in your private.",
+  "ping": "[shards] Shows my current ping.",
+  "dj": "Sets up my DJ module.",
+  "prefix": "Changes my current prefix on this server.",
+  "invite": "Sends my invite in your private.",
+  "loop": "Enable and disable the repeat in the current music.",
+  "resume": "Resumes the music that is paused.",
+  "pause": "Pauses the music that is playing.",
+  "search": "Searches for the music that you requested.",
+  "stats": "Shows my statistics.",
+  "nowplaying": "Shows the music that is actually playing.",
+  "playlist": "Shows the actually queue.",
+  "language": "[language-code] Changes my language in current server.",
+  "shuffle": "Shuffles the musics that is on the queue.",
+  "remove": "Removes a music from the queue."
+}
