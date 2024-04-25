@@ -28,6 +28,5 @@
   "MANAGE_WEBHOOKS": "Gerenciar WebHooks",
   "MANAGE_EMOJIS": "Gerenciar Emojis",
   "ONLY_DEVS": "Somente meus desenvolvedores podem executar este comando.",
-  "user-missing-permission": "Você não tem permissão para `{{perm}}`.",
   "dj-permission": "Você não tem permissão de DJ para executar este comando."
 }
