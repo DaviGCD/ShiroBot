@@ -11,6 +11,7 @@ const User = new mongoose.Schema({
       banned: false,
       banned_by: '',
       date: '',
+      expire_in: 0,
       reason: ''
     }
   },
