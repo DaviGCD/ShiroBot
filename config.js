@@ -10,7 +10,7 @@ module.exports = {
     },
     defaultImageFormat: 'png',
     defaultImageSize: 1024,
-    maxShards: process.env.TOTAL_SHARDS,
+    maxShards: process.env["TOTAL_SHARDS"],
     restMode: true,
     intents: 38559
   }
