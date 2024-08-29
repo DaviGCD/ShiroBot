@@ -1,6 +1,6 @@
 require('dotenv').config()
 module.exports = {
-  owner: process.env.OWNERS.trim().split(','),
+  owner: process.env["OWNERS"].trim().split(','),
   options: {
     allowedMentions: {
       everyone: false,
