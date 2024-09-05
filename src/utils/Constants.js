@@ -43,7 +43,12 @@ function generateKeyPremium(data) {
   }
 }
 
+function calcPercentage(num1, num2) {
+  return ((Number(num1) / Number(num2)) * Number(100)).toFixed(0)
+}
+
 module.exports = {
   menuItems,
-  generateKeyPremium
+  generateKeyPremium,
+  calcPercentage
 }
