@@ -85,13 +85,6 @@
     tslib "^2.6.2"
     ws "^8.16.0"
 
-"@lavacord/eris@0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@lavacord/eris/-/eris-0.0.3.tgz#79c840e66a96ad76a0dc6c60c5e1648135b3c17e"
-  integrity sha512-o7w4pbiAFaB3m85RY/D73qRM45DWcdc4r4fB7QNWXRsZJqGHxgGc+VIvocL0MeOOCjgpxLt1uf4Iflv7xhngtQ==
-  dependencies:
-    lavacord latest
-
 "@mongodb-js/saslprep@^1.1.5":
   version "1.1.9"
   resolved "https://registry.yarnpkg.com/@mongodb-js/saslprep/-/saslprep-1.1.9.tgz#e974bab8eca9faa88677d4ea4da8d09a52069004"
@@ -305,10 +298,9 @@ eris-additions@^1.4.1:
   dependencies:
     eris "^0.12.0"
 
-eris@0.17.x:
+eris@0.17.x, "eris@github:abalabahaha/eris#dev":
   version "0.17.2"
-  resolved "https://registry.yarnpkg.com/eris/-/eris-0.17.2.tgz#927542885b3b2ba6b14fffaaac85aa7ba02dc2ed"
-  integrity sha512-OzffDSL81VooFXfRn56ienSg7J6fagoN8WdkmCHjn0B9a4jUA3bVouMztQiaXT54jHV5jaX9D0mJ/b9/0mFoVg==
+  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/171bf7e0f7a02d478822b602ea2dbbed65ce6455"
   dependencies:
     ws "^8.2.3"
   optionalDependencies:
@@ -324,15 +316,6 @@ eris@^0.12.0:
   optionalDependencies:
     opusscript "^0.0.7"
     tweetnacl "^1.0.1"
-
-"eris@github:abalabahaha/eris#dev":
-  version "0.17.2"
-  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/171bf7e0f7a02d478822b602ea2dbbed65ce6455"
-  dependencies:
-    ws "^8.2.3"
-  optionalDependencies:
-    opusscript "^0.0.8"
-    tweetnacl "^1.0.3"
 
 esprima@^4.0.0:
   version "4.0.1"
@@ -407,7 +390,7 @@ kareem@2.6.3:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.6.3.tgz#23168ec8ffb6c1abfd31b7169a6fb1dd285992ac"
   integrity sha512-C3iHfuGUXK2u8/ipq9LfjFfXFxAZMQJJq7vLS45r3D9Y2xQ/m4S8zaR4zMLFWh9AsNPXmcFfUDhTEO8UIC/V6Q==
 
-lavacord@latest:
+lavacord@^2.1.4-v4:
   version "2.1.4-v4"
   resolved "https://registry.yarnpkg.com/lavacord/-/lavacord-2.1.4-v4.tgz#7d33391d8d47c3b61d1aa1c78c75ba7deb7b85e4"
   integrity sha512-BZ/Oi+Tcbs/l4vMb6SqIHvTEIFMwC1C+R6/rLcUClXO/Syn7I65vdjFBf9m3QYJ7gPssRBxsSpL71hAenC3nkw==
