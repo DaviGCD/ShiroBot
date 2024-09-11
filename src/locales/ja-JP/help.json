@@ -7,7 +7,6 @@
   "help": "Sends this list here in your private.",
   "ping": "[shards] Shows my current ping.",
   "dj": "Sets up my DJ module.",
-  "prefix": "Changes my current prefix on this server.",
   "invite": "Sends my invite in your private.",
   "loop": "Enable and disable the repeat in the current song.",
   "resume": "Resumes the song that is paused.",
@@ -15,8 +14,8 @@
   "search": "Searches for the song that you desire to find.",
   "stats": "Shows my statistics.",
   "nowplaying": "Shows the song that is actually playing.",
-  "playlist": "Shows the actually queue.",
+  "queue": "Shows the queue of the current player",
   "language": "[language-code] Changes my language in current server.",
   "shuffle": "Shuffles the musics that is on the queue.",
-  "remove": "Removes a song from the queue."
+  "remove": "Removes a song of the queue."
 }
