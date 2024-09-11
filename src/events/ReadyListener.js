@@ -19,6 +19,10 @@ module.exports = class ReadyListener extends EventListener {
       if (!command.config?.slash) return
       commands.push(command.config.slash)
     })
-    client.bulkEditCommands(commands)
+    client.bulkEditCommands(commands).then(cmd => {
+      for (const command of cmd) {
+        client.slashCommands.set(command.name, command)
+      }
+    })
   }
 }

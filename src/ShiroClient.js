@@ -7,6 +7,7 @@ module.exports = class ShiroClient extends Client {
     super(token, options)
     this.database = new (require('./utils/database/Database'))()
     this.commands = new Collection()
+    this.slashCommands = new Collection()
     this.config = require('../config')
     this.aliases = new Collection()
     this.player = new Collection()
