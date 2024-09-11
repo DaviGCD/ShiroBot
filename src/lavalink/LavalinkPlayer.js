@@ -53,12 +53,11 @@ module.exports = class LavalinkPlayer extends EventEmitter {
   }
 
   _play(song) {
-    this.player.once("error", error => console.error(error));
+    this.player.once("error", error => console.error(error.exception));
     this.player.on('start', (data) => {
-      console.log(data)
-      this.np = song.info
-      this.repeatTrack = song.encoded
-      return this.emit('nowPlaying', song)
+      this.np = data.track.info
+      this.repeatTrack = data.track.encoded
+      return this.emit('nowPlaying', data.track)
     })
     this.player.on('end', (data) => {
       if (data.type === "TrackEndEvent" && data.reason === "replaced") return
