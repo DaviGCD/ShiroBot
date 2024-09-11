@@ -7,7 +7,11 @@ module.exports = class NowPlayingCommand extends Command {
     super({
       name: 'nowplaying',
       aliases: ['playing', 'np', 'playingnow'],
-      category: 'music'
+      category: 'music',
+      slash: {
+        name: 'nowplaying',
+        description: 'Shows the song that is actually playing.'
+      }
     })
   }
 

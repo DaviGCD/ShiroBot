@@ -4,7 +4,11 @@ module.exports = class ShuffleCommand extends Command {
     super({
       name: 'shuffle',
       aliases: ['embaralhar', 'espalhar', 'aleatoriar'],
-      category: 'music'
+      category: 'music',
+      slash: {
+        name: 'shuffle',
+        description: 'Shuffles the musics that is on the queue.'
+      }
     })
   }
 

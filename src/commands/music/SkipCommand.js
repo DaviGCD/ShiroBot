@@ -7,7 +7,11 @@ module.exports = class SkipCommand extends Command {
       category: 'music',
       UserPermission: null,
       ClientPermission: null,
-      OnlyDevs: false
+      OnlyDevs: false,
+      slash: {
+        name: 'skip',
+        description: 'Skips the current song for the next song in the queue.'
+      }
     })
   }
 

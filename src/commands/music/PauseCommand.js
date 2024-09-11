@@ -7,7 +7,11 @@ module.exports = class PauseCommand extends Command {
       category: 'music',
       UserPermission: null,
       ClientPermission: null,
-      OnlyDevs: false
+      OnlyDevs: false,
+      slash: {
+        name: 'pause',
+        description: 'Pauses the song that is playing.'
+      }
     })
   }
 

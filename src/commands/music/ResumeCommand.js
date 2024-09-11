@@ -7,7 +7,11 @@ module.exports = class ResumeCommand extends Command {
       category: 'music',
       UserPermission: null,
       ClientPermission: null,
-      OnlyDevs: false
+      OnlyDevs: false,
+      slash: {
+        name: 'resume',
+        description: 'Resumes the song that is paused.'
+      }
     })
   }
 

@@ -4,7 +4,11 @@ module.exports = class LoopCommand extends Command {
     super({
       name: 'loop',
       aliases: ['repetir', 'repeat'],
-      category: 'music'
+      category: 'music',
+      slash: {
+        name: 'loop',
+        description: 'Enable and disable the repeat in the current song.'
+      }
     })
   }
 
