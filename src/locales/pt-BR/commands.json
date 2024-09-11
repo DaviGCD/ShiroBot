@@ -29,8 +29,8 @@
     "args-null": "Você precisa informar o tempo para poder alterar.",
     "correct-use": "Uso correto do comando: `{{prefix}}seek 160`"
   },
-  "skip": "Música pulada com sucesso.",
-  "stop": "Música parada e a lista foi limpa com sucesso, estou saindo do {{channel}}.",
+  "skip": "The song was successfully skipped.",
+  "stop": "The song was stopped and the queue was cleared, I'm leaveing `{{channel}}`.",
   "volume": {
     "max-and-min": "O meu volume máximo é de `{{volume}}` até `100`",
     "changed": "O meu volume foi alterado para `{{volume}}/100`",

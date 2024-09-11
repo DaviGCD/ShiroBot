@@ -16,7 +16,7 @@
     }
   },
   "play": {
-    "args-null": "You need enter a name or URL of the music.",
+    "args-null": "You need inform the name or URL of the song.",
     "playing-now": "Now playing `{{songTitle}}` uploaded by `{{songAuthor}}` duration: `{{songTime}}`.",
     "add-to-queue": "`{{songTitle}}` by `{{songAuthor}}` duration: `{{songTime}}` has be added to the queue."
   },
@@ -29,8 +29,8 @@
     "args-null": "You need enter the time to be change.",
     "correct-use": "Correct use to the command: `{{prefix}}seek 160`."
   },
-  "skip": "The music was successfully skipped.",
-  "stop": "The music was stopped and the queue was cleared, I'm leaveing of `{{channel}}`.",
+  "skip": "The song was successfully skipped.",
+  "stop": "The song was stopped and the queue was cleared, I'm leaveing `{{channel}}`.",
   "volume": {
     "max-and-min": "The maximum volume is `0/100`.",
     "changed": "My volume has be changed for `{{volume}}/100`.",
