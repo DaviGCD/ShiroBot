@@ -1,4 +1,5 @@
 const { EventEmitter } = require('events')
+const { Rest } = require('lavacord')
 
 module.exports = class LavalinkPlayer extends EventEmitter {
   constructor(player) {
@@ -11,38 +12,26 @@ module.exports = class LavalinkPlayer extends EventEmitter {
   }
 
   async getSongs(node, search) {
-    const axios = require('axios')
-    const { URLSearchParams } = require('url')
-    const params = new URLSearchParams()
-    params.append('identifier', search)
-    try {
-      const res = await axios.get(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, {
-        headers: {
-          Authorization: node.password
-        }
-      })
-
-      return res.data.tracks
-    } catch (err) {
-      console.error(err.message)
-      return null
-    }
+    return Rest.load(node, search).catch(err => {
+      console.error(err)
+      return []
+    })
   }
 
   play(query) {
-    return this.getSongs(this.player.node, `scsearch:${query}`).then(result => {
-      if (!result[0]) return
-      this._addToQueue(result[0])
-      return result[0].info
+    return this.getSongs(this.player.node, `spsearch:${query}`).then(result => {
+      if (!result.data[0]) return
+      this._addToQueue(result.data[0])
+      return result.data[0].info
     })
   }
 
   skip() {
     const queue = this.queue.shift()
     if (!queue) return
-    this.player.play(queue.track)
+    this.player.play(queue.encoded)
     this.np = queue.info
-    this.repeatTrack = queue.track
+    this.repeatTrack = queue.encoded
   }
 
   setVolume(value) {
@@ -58,28 +47,30 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     return this.queue.sort(() => Math.random() > 0.5 ? -1 : 1)
   }
 
-  _addToQueue(track) {
-    if (!this.player.playing && !this.player.paused) return this._play(track)
-    return this.queue.push(track)
+  _addToQueue(encoded) {
+    if (!this.player.playing && !this.player.paused) return this._play(encoded)
+    return this.queue.push(encoded)
   }
 
   _play(song) {
+    this.player.once("error", error => console.error(error.exception));
+    this.player.on('start', (data) => {
+      this.np = data.track.info
+      this.repeatTrack = data.track.encoded
+      return this.emit('nowPlaying', data.track)
+    })
     this.player.on('end', (data) => {
-      if (data.reason === 'REPLACED') return
+      if (data.type === "TrackEndEvent" && data.reason === "replaced") return
       if (this.repeat) {
         return this.player.play(this.repeatTrack)
       } else {
         const queue = this.queue.shift()
-        if (!queue) return this.emit('playEnd')
-        this.player.play(queue.track)
-        this.repeatTrack = queue.track
+        if (!queue) return this.emit('playerEnded')
+        this.player.play(queue.encoded)
+        this.repeatTrack = queue.encoded
         this.np = queue.info
       }
     })
-
-    this.player.play(song.track)
-    this.np = song.info
-    this.repeatTrack = song.track
-    return this.emit('playNow', song)
+    this.player.play(song.encoded)
   }
 }

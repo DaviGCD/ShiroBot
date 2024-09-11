@@ -5,7 +5,10 @@ module.exports = class HelpCommand extends Command {
       name: 'help',
       aliases: ['ajuda', 'comandos', 'commands'],
       category: 'misc',
-      slash: { name: 'help', description: 'Send this list here in your private.' }
+      slash: {
+        name: 'help',
+        description: 'Send this list here in your private.'
+      }
     })
   }
 

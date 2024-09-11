@@ -8,7 +8,10 @@ module.exports = class InviteCommand extends Command {
       UserPermission: null,
       ClientPermission: null,
       OnlyDevs: false,
-      slash: { name: 'invite', description: 'Send my invite in your private.' }
+      slash: {
+        name: 'invite',
+        description: 'Send my invite in your private.'
+      }
     })
   }
 

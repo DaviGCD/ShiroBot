@@ -8,7 +8,12 @@ module.exports = class PingCommand extends Command {
       slash: {
         name: 'ping',
         description: 'Shows my current ping',
-        options: [{ type: 5, name: 'shards', description: 'See how many shards I have', required: false }]
+        options: [{
+          type: 5,
+          name: 'shards',
+          description: 'See how many shards I have',
+          required: false
+        }]
       }
     })
   }

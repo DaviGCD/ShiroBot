@@ -7,7 +7,10 @@ module.exports = class StatsCommand extends Command {
       name: 'stats',
       aliases: ['status'],
       category: 'misc',
-      slash: { name: 'stats', description: 'Shows my statistics.' }
+      slash: {
+        name: 'stats',
+        description: 'Shows my statistics.'
+      }
     })
   }
 

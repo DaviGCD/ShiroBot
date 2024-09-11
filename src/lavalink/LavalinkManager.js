@@ -1,4 +1,4 @@
-const { Manager } = require('@lavacord/eris')
+const { Manager } = require('lavacord')
 const LavalinkPlayer = require('./LavalinkPlayer')
 
 // fallback for test env
@@ -13,9 +13,14 @@ try {
 module.exports = class LavalinkManager {
   constructor(client) {
     this.client = client
-    this.manager = new Manager(this.client, connect, {
+    this.manager = new Manager(connect, {
       user: this.client.user.id,
-      shards: parseInt(process.env.SHARD_COUNT)
+      shards: parseInt(process.env.SHARD_COUNT),
+      send: (packet) => {
+        const guild = this.client.guilds.get(packet.d.guild_id)
+        if (!guild) return
+        return guild.shard.sendWS(packet.op, packet.d)
+      }
     })
   }
 
@@ -33,7 +38,11 @@ module.exports = class LavalinkManager {
   }
 
   async join(channel) {
-    const manager = await this.manager.join({ channel, guild: this.client.getChannel(channel).guild.id, node: this.getBestHost() }, { selfdeaf: true })
+    const manager = await this.manager.join({
+      channel,
+      guild: this.client.getChannel(channel).guild.id,
+      node: this.getBestHost()
+    }, { selfdeaf: true })
     return new LavalinkPlayer(manager)
   }
 }

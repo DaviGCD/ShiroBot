@@ -7,7 +7,17 @@ module.exports = class VolumeCommand extends Command {
       category: 'music',
       UserPermission: null,
       ClientPermission: null,
-      OnlyDevs: false
+      OnlyDevs: false,
+      slash: {
+        name: 'volume',
+        description: 'Changes the volume of the song.',
+        options: [{
+          type: 3,
+          name: 'query',
+          description: 'The level of the volume that you want.',
+          required: true
+        }]
+      }
     })
   }
 
@@ -23,7 +33,7 @@ module.exports = class VolumeCommand extends Command {
       ctx.client.player.get(ctx.message.guildID).player.volume(ctx.args[0])
       ctx.quote(ctx.locale('commands:volume.changed', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume }))
     } else {
-      if (!ctx.message.member.roles.has(role.id)) return ctx.quote(ctx.locale('permissions:dj-permission'))
+      if (!ctx.message.member.roles.has(role.id)) return ctx.quote(ctx.locale('permissions:DJ_PERMISSION'))
       if (!ctx.client.player.has(ctx.message.guildID)) return ctx.quote(ctx.locale('commands:dj-module.playing-null'))
       if (!ctx.message.member.voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-channel-null'))
       if (ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID && ctx.message.member.voiceState.channelID !== ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.quote(ctx.locale('commands:dj-module.user-another-channel', { channel: ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID.name }))
