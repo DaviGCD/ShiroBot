@@ -16,9 +16,9 @@
     }
   },
   "play": {
-    "args-null": "Você precisa informar o nome ou URL da música.",
-    "playing-now": "Tocando agora `{{musicTitle}}` enviado por `{{musicAuthor}}` duração: `{{musicTime}}`.",
-    "add-to-queue": "`{{musicTitle}}` por `{{musicAuthor}}` duração: `{{musicTime}}` foi adicionada a fila."
+    "args-null": "You need inform the name or URL of the song.",
+    "playing-now": "Now playing `{{songTitle}}` uploaded by `{{songAuthor}}` duration: `{{songTime}}`.",
+    "add-to-queue": "`{{songTitle}}` by `{{songAuthor}}` duration: `{{songTime}}` has be added to the queue."
   },
   "prefix": {
     "args-null": "Você não informou o prefix que deseja colocar.",
@@ -29,8 +29,8 @@
     "args-null": "Você precisa informar o tempo para poder alterar.",
     "correct-use": "Uso correto do comando: `{{prefix}}seek 160`"
   },
-  "skip": "Música pulada com sucesso.",
-  "stop": "Música parada e a lista foi limpa com sucesso, estou saindo do {{channel}}.",
+  "skip": "The song was successfully skipped.",
+  "stop": "The song was stopped and the queue was cleared, I'm leaveing `{{channel}}`.",
   "volume": {
     "max-and-min": "O meu volume máximo é de `{{volume}}` até `100`",
     "changed": "O meu volume foi alterado para `{{volume}}/100`",
