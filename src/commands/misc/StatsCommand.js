@@ -21,7 +21,7 @@ module.exports = class StatsCommand extends Command {
     const servers = ctx.client.guilds.size
     const nodeVersion = process.version
     const discordVersion = require('eris').VERSION
-    const lavalink = require('../../../package.json').dependencies['@lavacord/eris']
+    const lavalink = require('../../../package.json').dependencies['lavacord']
     const shards = `${ctx.message.channel.guild.shard.id}/${ctx.client.shards.size}`
     const stats = `== STATISTICS ==\n\n• ${ctx.locale('commands:stats.memory')} :: ${memory}MB\n• ${ctx.locale('commands:stats.uptime')} :: ${uptime}\n• ${ctx.locale('commands:stats.users')} :: ${users}\n• ${ctx.locale('commands:stats.servers')} :: ${servers}\n• ${ctx.locale('commands:stats.node-version')} :: ${nodeVersion}\n• eris :: ${discordVersion}\n• lavacord :: ${lavalink}\n• ${ctx.locale('commands:stats.shards')} :: ${shards}`
 
