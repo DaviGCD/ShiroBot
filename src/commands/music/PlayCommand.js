@@ -32,9 +32,9 @@ module.exports = class PlayCommand extends Command {
     if (ctx.client.lavalink.manager.players.has(ctx.message.guildID)) {
       ctx.client.player.get(ctx.message.guildID).play(args, ctx.message.author).then(info => {
         ctx.quote(ctx.locale('commands:play.add-to-queue', {
-          musicTitle: info?.title ?? '[PRIVATE]',
-          musicAuthor: info?.author ?? '[PRIVATE]',
-          musicTime: moment.duration(info.length).format('dd:hh:mm:ss')
+          songTitle: info?.title ?? '[PRIVATE]',
+          songAuthor: info?.author ?? '[PRIVATE]',
+          songTime: moment.duration(info.length).format('dd:hh:mm:ss')
         }))
       })
 
@@ -42,9 +42,9 @@ module.exports = class PlayCommand extends Command {
       let music = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID)
       music.on('nowPlaying', track => {
         ctx.quote(ctx.locale('commands:play.playing-now', {
-          musicTitle: track.info.title,
-          musicAuthor: track.info.author,
-          musicTime: moment.duration(track.info?.length).format('dd:hh:mm:ss')
+          songTitle: track.info.title,
+          songAuthor: track.info.author,
+          songTime: moment.duration(track.info?.length).format('dd:hh:mm:ss')
         }))
       })
       music.on('playerEnded', async () => {

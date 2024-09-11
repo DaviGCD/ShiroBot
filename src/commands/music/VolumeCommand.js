@@ -7,7 +7,17 @@ module.exports = class VolumeCommand extends Command {
       category: 'music',
       UserPermission: null,
       ClientPermission: null,
-      OnlyDevs: false
+      OnlyDevs: false,
+      slash: {
+        name: 'volume',
+        description: 'Changes the volume of the song.',
+        options: [{
+          type: 3,
+          name: 'query',
+          description: 'The level of the volume that you want.',
+          required: true
+        }]
+      }
     })
   }
 

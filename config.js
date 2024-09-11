@@ -12,6 +12,6 @@ module.exports = {
     defaultImageSize: 1024,
     maxShards: process.env["TOTAL_SHARDS"],
     restMode: true,
-    intents: 50336445
+    intents: 4765
   }
 }

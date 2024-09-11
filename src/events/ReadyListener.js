@@ -7,9 +7,10 @@ module.exports = class ReadyListener extends EventListener {
 
   async run(client) {
     console.log('Connected')
-    setInterval(() => {
-      client.editStatus('online', { name: `@${client.user.username} | ${client.guilds.size} guilds` })
-    }, 15000)
+    client.editStatus('online', [{
+      state: `<:shiro:597315906284290067> @${client.user.username} | ${client.guilds.size} guilds`,
+      type: 4
+    }])
 
     client.lavalink = new LavalinkManager(client)
     await client.lavalink.connect()

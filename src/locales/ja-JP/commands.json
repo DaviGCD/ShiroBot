@@ -17,8 +17,8 @@
   },
   "play": {
     "args-null": "You need enter a name or URL of the music.",
-    "playing-now": "Now playing `{{musicTitle}}` uploaded by `{{musicAuthor}}` duration: `{{musicTime}}`.",
-    "add-to-queue": "`{{musicTitle}}` by `{{musicAuthor}}` duration: `{{musicTime}}` has be added to the queue."
+    "playing-now": "Now playing `{{songTitle}}` uploaded by `{{songAuthor}}` duration: `{{songTime}}`.",
+    "add-to-queue": "`{{songTitle}}` by `{{songAuthor}}` duration: `{{songTime}}` has be added to the queue."
   },
   "prefix": {
     "args-null": "You haven't entered a prefix that you want to set.",
