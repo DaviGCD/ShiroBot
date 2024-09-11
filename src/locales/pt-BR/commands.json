@@ -16,9 +16,9 @@
     }
   },
   "play": {
-    "args-null": "Você precisa informar o nome ou URL da música.",
-    "playing-now": "Tocando agora `{{songTitle}}` enviado por `{{songAuthor}}` duração: `{{songTime}}`.",
-    "add-to-queue": "`{{songTitle}}` por `{{songAuthor}}` duração: `{{songTime}}` foi adicionada a fila."
+    "args-null": "You need inform the name or URL of the song.",
+    "playing-now": "Now playing `{{songTitle}}` uploaded by `{{songAuthor}}` duration: `{{songTime}}`.",
+    "add-to-queue": "`{{songTitle}}` by `{{songAuthor}}` duration: `{{songTime}}` has be added to the queue."
   },
   "prefix": {
     "args-null": "Você não informou o prefix que deseja colocar.",
@@ -91,8 +91,9 @@
   "false": "Desativado",
   "click-here": "clique aqui",
   "queue": {
-    "pages": "Página {{page}} de {{pages}}",
-    "title": "Músicas que estão na fila"
+    "pages": "Page {{page}} of {{pages}}",
+    "title": "Músicas que estão na fila",
+    "limit_exceeded": "You exceeded the limit of pages! There is a total of {{pages}} pages"
   },
   "shuffle": "Fila embaralhada com sucesso.",
   "remove": {
