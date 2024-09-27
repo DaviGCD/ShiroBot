@@ -7,7 +7,6 @@
   "help": "Envia esta lista aqui no seu privado.",
   "ping": "[shards] Mostra o meu ping atual",
   "dj": "Configura o meu módulo de DJ.",
-  "prefix": "Altera o meu prefix atual no servidor.",
   "invite": "Envia o meu convite no seu privado.",
   "loop": "Enable and disable the repeat in the current song.",
   "resume": "Resumes the song that is paused.",
@@ -15,8 +14,8 @@
   "search": "Searches for the song that you desire to find.",
   "stats": "Mostra as minhas estatística.",
   "nowplaying": "Shows the song that is actually playing.",
-  "playlist": "Mostra a lista de música atual.",
+  "queue": "Shows the queue of the current player",
   "language": "Altera o meu idioma no seu servidor.",
   "shuffle": "Embaralha as músicas na fila.",
-  "remove": "Removes a song from the queue."
+  "remove": "Removes a song of the queue."
 }

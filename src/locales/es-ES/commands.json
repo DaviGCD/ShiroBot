@@ -91,8 +91,9 @@
   "false": "Disable",
   "click-here": "click here",
   "queue": {
-    "pages": "Page {{page}} for {{pages}}",
-    "title": "Musics that are in the queue"
+    "pages": "Page {{page}} of {{pages}}",
+    "title": "Musics that are in the queue",
+    "limit_exceeded": "You exceeded the limit of pages! There is a total of {{pages}} pages"
   },
   "shuffle": "Queue successfully shuffled.",
   "remove": {
