@@ -319,8 +319,8 @@ eris@^0.12.0:
 
 "eris@github:abalabahaha/eris#dev":
   version "0.18.0"
-  uid "68e8436d8407c488272debbc404e9d4b6dca56ec"
-  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/68e8436d8407c488272debbc404e9d4b6dca56ec"
+  uid "513038542457a5e702f22f61ff64509f37a6bea0"
+  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/513038542457a5e702f22f61ff64509f37a6bea0"
   dependencies:
     ws "^8.2.3"
   optionalDependencies:
