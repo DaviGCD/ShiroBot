@@ -1,5 +1,5 @@
 ## Shiro Bot
-> **Warning:** The bot is actually being remade.
+> **Warning:** The bot is actually being rewritten.
 
 Shiro is a multipurpose bot made to entertain you, she is simple to use and much more.
 
