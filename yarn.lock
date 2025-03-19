@@ -59,16 +59,16 @@
   resolved "https://registry.yarnpkg.com/@discordjs/util/-/util-1.1.1.tgz#bafcde0faa116c834da1258d78ec237080bbab29"
   integrity sha512-eddz6UnOBEB1oITPinyrB2Pttej49M9FZQY8NxgEvc3tq6ZICZ19m70RsmzRdDHk80O9NoYN/25AqJl8vPVf/g==
 
-"@discordjs/voice@^0.16.1":
-  version "0.16.1"
-  resolved "https://registry.yarnpkg.com/@discordjs/voice/-/voice-0.16.1.tgz#c4ad52b9308875d0462e22681060aecb97675941"
-  integrity sha512-uiWiW0Ta6K473yf8zs13RfKuPqm/xU4m4dAidMkIdwqgy1CztbbZBtPLfDkVSKzpW7s6m072C+uQcs4LwF3FhA==
+"@discordjs/voice@^0.17.0":
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/@discordjs/voice/-/voice-0.17.0.tgz#37be97c20dc4144c4c4d27d8ad02f29373da7ea6"
+  integrity sha512-hArn9FF5ZYi1IkxdJEVnJi+OxlwLV0NJYWpKXsmNOojtGtAZHxmsELA+MZlu2KW1F/K1/nt7lFOfcMXNYweq9w==
   dependencies:
-    "@types/ws" "^8.5.9"
-    discord-api-types "0.37.61"
+    "@types/ws" "^8.5.10"
+    discord-api-types "0.37.83"
     prism-media "^1.3.5"
     tslib "^2.6.2"
-    ws "^8.14.2"
+    ws "^8.16.0"
 
 "@discordjs/ws@1.1.1":
   version "1.1.1"
@@ -142,7 +142,7 @@
   dependencies:
     "@types/webidl-conversions" "*"
 
-"@types/ws@^8.5.10", "@types/ws@^8.5.9":
+"@types/ws@^8.5.10":
   version "8.5.12"
   resolved "https://registry.yarnpkg.com/@types/ws/-/ws-8.5.12.tgz#619475fe98f35ccca2a2f6c137702d85ec247b7e"
   integrity sha512-3tPRkv1EtkDpzlgyKyI8pGsGZAGPEaXeu0DOj5DI25Ja91bdAYddYHbADRYVrZMRbfW+1l5YwXVDKohDJNQxkQ==
@@ -180,13 +180,13 @@ bson@^6.10.1:
   resolved "https://registry.yarnpkg.com/bson/-/bson-6.10.1.tgz#dcd04703178f5ecf5b25de04edd2a95ec79385d3"
   integrity sha512-P92xmHDQjSKPLHqFxefqMxASNq/aWJMEZugpCjf+AF/pgcUpMMQCg7t7+ewko0/u8AapvF3luf/FoehddEK+sA==
 
-cloudstorm@0.10.x:
-  version "0.10.11"
-  resolved "https://registry.yarnpkg.com/cloudstorm/-/cloudstorm-0.10.11.tgz#f48cde6bfc0f326a74c8fbb84c5a947e064a32ef"
-  integrity sha512-A3lN0o404la7ryWIxN73gW2ehC0RO4h0yCA2grtOtPh8rNTd6+R2U4llyJlb61HlyOFrEVJ7AbOoFblVSmkrtw==
+cloudstorm@0.12.x:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/cloudstorm/-/cloudstorm-0.12.0.tgz#e211d267aee91acd023c7ec087d88954b82019f0"
+  integrity sha512-2rxx1hzlSzYc2cssPak6+PCsuHVT3eTcbFr4+Lp30k+YTukGOw8kzdzHU6O7kWDBgs3UiGfbdAaUgZmRytRYgQ==
   dependencies:
-    discord-api-types "^0.37.98"
-    snowtransfer "^0.10.7"
+    discord-api-types "^0.37.119"
+    snowtransfer "^0.13.1"
 
 combined-stream@^1.0.8:
   version "1.0.8"
@@ -248,11 +248,6 @@ detritus-utils@^0.4.0:
   resolved "https://registry.yarnpkg.com/detritus-utils/-/detritus-utils-0.4.0.tgz#42c01e029bd716c5be30a82ee4c621136f64ef35"
   integrity sha512-XO9crk1eCOecajzOg4WMsvcgXV/3GAltV0nt+kXXmglwcKyh/5DpQ7jmQ/2HycEN0dGBdgLCLPzYMxrWPN9gpw==
 
-discord-api-types@0.37.61:
-  version "0.37.61"
-  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.37.61.tgz#9dd8e58c624237e6f1b23be2d29579af268b8c5b"
-  integrity sha512-o/dXNFfhBpYHpQFdT6FWzeO7pKc838QeeZ9d91CfVAtpr5XLK4B/zYxQbYgPdoMiTDvJfzcsLW5naXgmHGDNXw==
-
 discord-api-types@0.37.83:
   version "0.37.83"
   resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.37.83.tgz#a22a799729ceded8176ea747157837ddf4708b1f"
@@ -263,10 +258,10 @@ discord-api-types@0.37.97:
   resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.37.97.tgz#d658573f726ad179261d538dbad4e7e8eca48d11"
   integrity sha512-No1BXPcVkyVD4ZVmbNgDKaBoqgeQ+FJpzZ8wqHkfmBnTZig1FcH3iPPersiK1TUIAzgClh2IvOuVUYfcWLQAOA==
 
-discord-api-types@^0.37.98:
-  version "0.37.100"
-  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.37.100.tgz#5979892d39511bc7f1dbb9660d2d2cad698b3de7"
-  integrity sha512-a8zvUI0GYYwDtScfRd/TtaNBDTXwP5DiDVX7K5OmE+DRT57gBqKnwtOC5Ol8z0mRW8KQfETIgiB8U0YZ9NXiCA==
+discord-api-types@^0.37.119:
+  version "0.37.119"
+  resolved "https://registry.yarnpkg.com/discord-api-types/-/discord-api-types-0.37.119.tgz#29e32f635351da32dd4c92defcafdeb65156ad33"
+  integrity sha512-WasbGFXEB+VQWXlo6IpW3oUv73Yuau1Ig4AZF/m13tXcTKnMpc/mHjpztIlz4+BM9FG9BHQkEXiPto3bKduQUg==
 
 discord.js@14.x:
   version "14.16.1"
@@ -298,9 +293,10 @@ eris-additions@^1.4.1:
   dependencies:
     eris "^0.12.0"
 
-eris@0.17.x:
-  version "0.17.2"
-  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/171bf7e0f7a02d478822b602ea2dbbed65ce6455"
+eris@0.18.x, "eris@github:abalabahaha/eris#dev":
+  version "0.18.0"
+  uid ae295d081c17f574b3768f6d60fcd7dd1b64b54c
+  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/ae295d081c17f574b3768f6d60fcd7dd1b64b54c"
   dependencies:
     ws "^8.2.3"
   optionalDependencies:
@@ -316,16 +312,6 @@ eris@^0.12.0:
   optionalDependencies:
     opusscript "^0.0.7"
     tweetnacl "^1.0.1"
-
-"eris@github:abalabahaha/eris#dev":
-  version "0.18.0"
-  uid ae295d081c17f574b3768f6d60fcd7dd1b64b54c
-  resolved "https://codeload.github.com/abalabahaha/eris/tar.gz/ae295d081c17f574b3768f6d60fcd7dd1b64b54c"
-  dependencies:
-    ws "^8.2.3"
-  optionalDependencies:
-    opusscript "^0.0.8"
-    tweetnacl "^1.0.3"
 
 esprima@^4.0.0:
   version "4.0.1"
@@ -400,20 +386,19 @@ kareem@2.6.3:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.6.3.tgz#23168ec8ffb6c1abfd31b7169a6fb1dd285992ac"
   integrity sha512-C3iHfuGUXK2u8/ipq9LfjFfXFxAZMQJJq7vLS45r3D9Y2xQ/m4S8zaR4zMLFWh9AsNPXmcFfUDhTEO8UIC/V6Q==
 
-lavacord@^2.1.4-v4:
-  version "2.1.4-v4"
-  resolved "https://registry.yarnpkg.com/lavacord/-/lavacord-2.1.4-v4.tgz#7d33391d8d47c3b61d1aa1c78c75ba7deb7b85e4"
-  integrity sha512-BZ/Oi+Tcbs/l4vMb6SqIHvTEIFMwC1C+R6/rLcUClXO/Syn7I65vdjFBf9m3QYJ7gPssRBxsSpL71hAenC3nkw==
+lavacord@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/lavacord/-/lavacord-2.2.0.tgz#2f62b0b18071de3037a5e80b053a8596f2b2e3c3"
+  integrity sha512-fNf772Iu1i7BvDmo5R55qfBnxrZbe5+hlykoIXPpWTQrsYb2h65bqv/NQ6B7zLNvMktzqgqAi/Bc8B9Nmv91qQ==
   dependencies:
     lavalink-types "^2.1.1"
-    undici "^6.0.1"
-    ws "^8.15.0"
+    ws "^8.18.1"
   optionalDependencies:
-    cloudstorm "0.10.x"
+    cloudstorm "0.12.x"
     detritus-client "0.16.x"
     discord.js "14.x"
-    eris "0.17.x"
-    oceanic.js "1.9.0"
+    eris "0.18.x"
+    oceanic.js "1.11.x"
 
 lavalink-types@^2.1.1:
   version "2.1.1"
@@ -521,15 +506,15 @@ node-fetch@^2.6.0, node-fetch@^2.6.1:
   dependencies:
     whatwg-url "^5.0.0"
 
-oceanic.js@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/oceanic.js/-/oceanic.js-1.9.0.tgz#f3ddbe1be76abf231e201334dd27cd9c17521258"
-  integrity sha512-zBHxBnJDkhYiHvQnTWcLsdRa/0v7+S2BYHWS3TLZpmMDXJU/+KOB9oL17YqSK8xvfpA0ykIsZTPKTgwxQUfLxA==
+oceanic.js@1.11.x:
+  version "1.11.2"
+  resolved "https://registry.yarnpkg.com/oceanic.js/-/oceanic.js-1.11.2.tgz#8e37c3e16f34cc64ebfe34654803ad80c8e7f73e"
+  integrity sha512-kXMoZiIrIFq0QCfsZGJ+eOK+1IFkVsTpvwcQ3nfY6ioDKGVdHQjVIXNJAYvJb5c5la//2OU8WGpqsmp/bAP8aw==
   dependencies:
     tslib "^2.6.2"
-    ws "^8.16.0"
+    ws "^8.18.0"
   optionalDependencies:
-    "@discordjs/voice" "^0.16.1"
+    "@discordjs/voice" "^0.17.0"
 
 opusscript@^0.0.7:
   version "0.0.7"
@@ -579,13 +564,12 @@ simple-youtube-api@^5.2.1:
     iso8601-duration "^1.2.0"
     node-fetch "^2.6.0"
 
-snowtransfer@^0.10.7:
-  version "0.10.7"
-  resolved "https://registry.yarnpkg.com/snowtransfer/-/snowtransfer-0.10.7.tgz#032fe7e28c86d83601415c6bc38bfddf0844528a"
-  integrity sha512-lXUYp6jOou0DI8uFl3Dh78KD1gVa3dNbUt2TK6RW39mHenAR6XpoPoydUNXCWvdxi6uGU6zQ1yNICZpKjF6wMA==
+snowtransfer@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/snowtransfer/-/snowtransfer-0.13.1.tgz#31a722f4c3b0105917f276964e4f22b6cebcf00d"
+  integrity sha512-EMrvqCk0JVcpJILTV9JEvUi3VyC5kohcza9d9l034B+cXwLbOWKFhzKULBPe/VqTdx+aqFpdYCdb1/HDrRiZ1Q==
   dependencies:
-    discord-api-types "^0.37.98"
-    undici "^6.19.8"
+    discord-api-types "^0.37.119"
 
 sparse-bitfield@^3.0.3:
   version "3.0.3"
@@ -631,7 +615,7 @@ undici-types@~6.19.2:
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.19.8.tgz#35111c9d1437ab83a7cdc0abae2f26d88eda0a02"
   integrity sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==
 
-undici@6.19.8, undici@^6.0.1, undici@^6.19.8:
+undici@6.19.8:
   version "6.19.8"
   resolved "https://registry.yarnpkg.com/undici/-/undici-6.19.8.tgz#002d7c8a28f8cc3a44ff33c3d4be4d85e15d40e1"
   integrity sha512-U8uCCl2x9TK3WANvmBavymRzxbfFYG+tAu+fgx3zxQy3qdagQqBLwJVrdyO1TBfUXvfKveMKJZhpvUYoOjM+4g==
@@ -667,7 +651,7 @@ ws@^7.2.1, ws@^7.4.6:
   resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.10.tgz#58b5c20dc281633f6c19113f39b349bd8bd558d9"
   integrity sha512-+dbF1tHwZpXcbOJdVOkzLDxZP1ailvSxM6ZweXTegylPny803bFhA+vqBYw4s31NSAk4S2Qz+AKXK9a4wkdjcQ==
 
-ws@^8.14.2, ws@^8.15.0, ws@^8.16.0, ws@^8.2.3:
-  version "8.18.0"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-8.18.0.tgz#0d7505a6eafe2b0e712d232b42279f53bc289bbc"
-  integrity sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==
+ws@^8.16.0, ws@^8.18.0, ws@^8.18.1, ws@^8.2.3:
+  version "8.18.1"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-8.18.1.tgz#ea131d3784e1dfdff91adb0a4a116b127515e3cb"
+  integrity sha512-RKW2aJZMXeMxVpnZ6bck+RswznaxmzdULiBr6KY7XkTnW8uvt0iT9H5DkHUChXrc+uurzwa0rVI16n/Xzjdz1w==
