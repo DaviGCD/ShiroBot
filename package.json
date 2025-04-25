@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/DaviGCD/ShiroBot#readme",
   "dependencies": {
-    "axios": "^1.8.4",
+    "axios": "^1.9.0",
     "eris": "github:abalabahaha/eris#dev",
     "eris-additions": "^1.4.1",
     "i18next": "^25.0.0",
