@@ -32,7 +32,7 @@
     "lavacord": "^2.2.0",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
-    "mongoose": "^8.13.2",
+    "mongoose": "^9.1.1",
     "parse-duration": "^2.1.4",
     "simple-youtube-api": "^5.2.1"
   },
