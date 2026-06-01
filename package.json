@@ -37,6 +37,6 @@
     "simple-youtube-api": "^5.2.1"
   },
   "devDependencies": {
-    "dotenv": "^17.2.3"
+    "dotenv": "^17.4.2"
   }
 }
