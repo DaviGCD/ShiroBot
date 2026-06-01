@@ -526,10 +526,10 @@ opusscript@^0.0.8:
   resolved "https://registry.yarnpkg.com/opusscript/-/opusscript-0.0.8.tgz#00b49e81281b4d99092d013b1812af8654bd0a87"
   integrity sha512-VSTi1aWFuCkRCVq+tx/BQ5q9fMnQ9pVZ3JU4UHKqTkf0ED3fKEPdr+gKAAl3IA2hj9rrP6iyq3hlcJq3HELtNQ==
 
-parse-duration@^2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/parse-duration/-/parse-duration-2.1.4.tgz#02918736726f657eaf70b52bb8da7910316df51d"
-  integrity sha512-b98m6MsCh+akxfyoz9w9dt0AlH2dfYLOBss5SdDsr9pkhKNvkWBXU/r8A4ahmIGByBOLV2+4YwfCuFxbDDaGyg==
+parse-duration@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/parse-duration/-/parse-duration-2.1.5.tgz#968d15cce6931051568cb40445389299ecf00133"
+  integrity sha512-/IX1KRw6zHDOOJrgIz++gvFASbFl7nc8GEXaLdD7d1t1x/GnrK6hh5Fgk8G3RLpkIEi4tsGj9pupGLWNg0EiJA==
 
 prism-media@^1.3.5:
   version "1.3.5"
