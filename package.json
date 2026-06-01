@@ -33,7 +33,7 @@
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "mongoose": "^9.6.3",
-    "parse-duration": "^2.1.5",
+    "parse-duration": "^2.1.6",
     "simple-youtube-api": "^5.2.1"
   },
   "devDependencies": {
