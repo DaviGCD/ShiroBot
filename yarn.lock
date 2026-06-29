@@ -576,10 +576,10 @@ i18next-node-fs-backend@^2.1.3:
     js-yaml "3.13.1"
     json5 "2.0.0"
 
-i18next@^26.3.1:
-  version "26.3.1"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-26.3.1.tgz#94762857f5aae0c6282d87f8f0039cbbc9f7b42d"
-  integrity sha512-txQqd5EULsqEh9OJqRH15aCaOuy/nLJyhw5EHCSKLKJE1aBbb3Zve2+uQIxgWhPm1QqUQoWyQBm2kfmmIrzkcQ==
+i18next@^26.3.3:
+  version "26.3.3"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-26.3.3.tgz#acab67bb8608deaf01886a1d573dbd6f2c201b9b"
+  integrity sha512-aYVegyBdXSO93CMMihvr47jI7GHSOcIahMpJX+qzUXDzW4xDJf2uenIA+45vDU+YhiVdcfsql70AC9RVdMNrHg==
 
 iso8601-duration@^1.2.0:
   version "1.3.0"
